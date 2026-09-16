@@ -1,0 +1,178 @@
+DAY 02 - ORACLE EBS TECHNICAL TRAINING
+
+Topics Covered:
+
+1. Introduction to Oracle Forms Builder
+2. Form Module
+3. Window
+4. Canvas
+5. Data Block
+6. Items
+7. Creating a Basic Oracle Form
+8. Forms-Based Applications
+9. Self-Service Applications
+10. Oracle EBS Responsibilities
+11. Query By Example (QBE)
+12. Oracle EBS Navigation
+
+
+--------------------------------------------------
+ORACLE FORMS BUILDER
+--------------------------------------------------
+
+Oracle Forms Builder is a development tool used to build
+applications that allow users to retrieve, enter, modify,
+and save information stored in an Oracle Database.
+
+
+--------------------------------------------------
+FORM STRUCTURE
+--------------------------------------------------
+
+A basic Oracle Form can contain:
+
+Form Module
+    |
+    +-- Window
+         |
+         +-- Canvas
+              |
+              +-- Data Block
+                   |
+                   +-- Items
+
+
+Form Module:
+The main container of an Oracle Forms application.
+
+Window:
+The frame that contains and displays a Canvas.
+
+Canvas:
+The visual surface inside a Window where interface objects
+are displayed.
+
+Data Block:
+A logical container that usually represents data from a
+database table or view.
+
+Item:
+A form object that represents a single data element or field.
+
+
+Database Relationship:
+
+Database Table  -> Data Block
+Table Column    -> Item
+Table Row       -> Record
+
+
+--------------------------------------------------
+CREATING A BASIC FORM
+--------------------------------------------------
+
+Basic Steps:
+
+1. Open Oracle Forms Builder.
+
+2. Create a new Form Module.
+
+3. Create or use a Window.
+
+4. Create a Canvas.
+
+5. Open the Data Block Wizard.
+
+6. Select a database Table or View.
+
+7. Select the required columns.
+
+8. Complete the Data Block Wizard.
+
+9. Open the Layout Wizard.
+
+10. Select the Canvas.
+
+11. Select the items to display.
+
+12. Complete the Layout Wizard.
+
+13. Save the Form Module.
+
+14. Run the Form.
+
+15. Query records from the database.
+
+
+--------------------------------------------------
+ORACLE EBS APPLICATION ACCESS
+--------------------------------------------------
+
+Oracle EBS provides access to different application
+functionalities based on the user's assigned Responsibility.
+
+
+Responsibility:
+
+A Responsibility defines the applications, menus, forms,
+functions and reports that a user is authorized to access.
+
+A user can have one or more Responsibilities.
+
+
+--------------------------------------------------
+FORMS-BASED AND SELF-SERVICE
+--------------------------------------------------
+
+Forms-Based:
+
+Oracle Forms-based interfaces are used to access traditional
+Oracle EBS Forms.
+
+Self-Service:
+
+Self-Service applications are browser-based pages used to
+access Oracle EBS functionality.
+
+
+--------------------------------------------------
+QUERY BY EXAMPLE (QBE)
+--------------------------------------------------
+
+Query By Example is used to search for records in Oracle EBS
+Forms.
+
+Basic Steps:
+
+1. Open the required Form.
+
+2. Navigate to:
+
+   View > Query By Example > Enter
+
+3. Enter the required search criteria.
+
+Example:
+
+   A%
+
+4. Run the query:
+
+   View > Query By Example > Run
+
+5. The matching records are displayed.
+
+The % symbol is used as a wildcard when searching for records.
+
+
+--------------------------------------------------
+DAY 02 OUTCOME
+--------------------------------------------------
+
+Gained an understanding of Oracle Forms Builder structure,
+including Form Modules, Windows, Canvases, Data Blocks and
+Items.
+
+Also learned how Oracle EBS Responsibilities control user
+access, the difference between Forms-Based and Self-Service
+applications, and how to retrieve records using Query By Example.

@@ -1,0 +1,64 @@
+DAY 01 - ORACLE EBS TECHNICAL TRAINING
+
+Topics Covered:
+
+1. Introduction to Oracle EBS
+2. Data and Information
+3. Database Concepts
+4. Database Tables, Rows and Columns
+5. Primary Key and Foreign Key
+6. SQL Basics
+7. DDL, DML, DCL and DQL
+8. Joins
+9. Composite Primary Key
+10. Introduction to ERP
+11. Introduction to Oracle EBS
+
+Key Concepts:
+
+- Data:
+  Raw facts that have not yet been processed.
+
+- Information:
+  Processed and organized data that has meaning.
+
+- Database:
+  An organized collection of related data.
+
+- Primary Key:
+  A column or combination of columns that uniquely identifies
+  each record in a table.
+
+- Foreign Key:
+  A column that creates a relationship between two tables by
+  referencing a Primary Key in another table.
+
+- Composite Primary Key:
+  A Primary Key consisting of more than one column.
+
+SQL Categories:
+
+- DDL - Data Definition Language
+  Examples: CREATE, ALTER, DROP
+
+- DML - Data Manipulation Language
+  Examples: INSERT, UPDATE, DELETE
+
+- DQL - Data Query Language
+  Example: SELECT
+
+- DCL - Data Control Language
+  Examples: GRANT, REVOKE
+
+ERP:
+ERP stands for Enterprise Resource Planning.
+It is an integrated system used to manage different business
+processes using a common system and database.
+
+Oracle EBS:
+Oracle E-Business Suite (EBS) is an ERP application suite
+used by organizations to manage different business functions.
+
+Day 01 Outcome:
+Gained an understanding of fundamental database concepts,
+SQL categories, table relationships, ERP, and Oracle EBS.

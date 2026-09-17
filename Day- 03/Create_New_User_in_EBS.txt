@@ -48,3 +48,13 @@ RESULT
 
 A new Oracle EBS user was created successfully and the
 required Responsibilities were assigned to the user.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+create_user.PNG
+
+The screenshot shows the created Oracle EBS user with
+the assigned responsibilities.

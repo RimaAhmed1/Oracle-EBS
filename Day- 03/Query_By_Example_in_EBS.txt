@@ -54,3 +54,16 @@ RESULT
 
 Query By Example was used successfully to search for and
 retrieve records from an Oracle EBS Form.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+query_by_example.PNG
+
+The screenshot shows Oracle EBS in Query By Example mode
+using "RIMA%" as the search criteria.
+
+The "%" wildcard is used to search for user records whose
+usernames begin with "RIMA".

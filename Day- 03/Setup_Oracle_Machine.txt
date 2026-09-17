@@ -60,3 +60,34 @@ RESULT
 The Oracle training machine was accessed successfully and the
 required Oracle development tools were verified and ready for
 Oracle EBS technical development.
+
+--------------------------------------------------
+VERIFICATION
+--------------------------------------------------
+
+The Oracle Database connection was verified successfully
+using SQL*Plus.
+
+Commands Used:
+
+SHOW USER;
+
+SELECT SYSDATE FROM DUAL;
+
+The SHOW USER command confirmed that the connected database
+user is APPS.
+
+The SYSDATE query returned the current database date,
+confirming that the Oracle Database connection was working
+successfully.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+oracle_machine_setup.png
+
+The screenshot shows a successful SQL*Plus connection,
+the connected APPS database user, and the successful
+execution of the SYSDATE query.

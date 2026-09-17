@@ -1,0 +1,50 @@
+CREATE NEW USER IN ORACLE EBS
+
+Objective:
+Create a new user in Oracle E-Business Suite (EBS) and assign the required responsibilities.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Log in to Oracle EBS.
+
+2. Switch to the "System Administrator" responsibility.
+
+3. Navigate to:
+
+   Security > User > Define
+
+4. In the Users form, enter the required user information.
+
+5. Enter a unique Username.
+
+6. Enter the initial Password.
+
+7. Assign the required Responsibilities to the user, such as:
+
+   - Application Developer
+   - System Administrator
+
+8. Save the record.
+
+9. Verify the newly created user using Query By Example.
+
+10. Navigate to:
+
+    View > Query By Example > Enter
+
+11. Enter the Username of the created user.
+
+12. Run the query:
+
+    View > Query By Example > Run
+
+13. Verify that the user record is successfully retrieved.
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+A new Oracle EBS user was created successfully and the
+required Responsibilities were assigned to the user.

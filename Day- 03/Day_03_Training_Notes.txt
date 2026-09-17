@@ -1,0 +1,130 @@
+DAY 03 - ORACLE EBS TECHNICAL TRAINING
+
+Topics Covered:
+
+1. Oracle EBS Login and Navigation
+2. Oracle EBS Responsibilities
+3. System Administrator Responsibility
+4. Application Developer Responsibility
+5. Creating a New User in Oracle EBS
+6. Assigning Responsibilities to a User
+7. Query By Example (QBE)
+8. Oracle Development Environment
+9. SQL Developer Database Connection
+10. Oracle Forms Builder
+11. Oracle EBS Database Structure
+
+
+--------------------------------------------------
+ORACLE EBS USER
+--------------------------------------------------
+
+Oracle EBS users are created and managed through the
+System Administrator responsibility.
+
+Navigation:
+
+System Administrator
+> Security
+> User
+> Define
+
+A user can be assigned one or more Responsibilities
+depending on the required application access.
+
+
+--------------------------------------------------
+RESPONSIBILITY
+--------------------------------------------------
+
+A Responsibility controls the functions, forms, reports
+and other Oracle EBS features that a user can access.
+
+Examples:
+
+- System Administrator
+- Application Developer
+
+
+--------------------------------------------------
+QUERY BY EXAMPLE (QBE)
+--------------------------------------------------
+
+Query By Example is used to search for records in
+Oracle EBS Forms.
+
+Steps:
+
+1. Open the required Form.
+
+2. Navigate to:
+
+   View > Query By Example > Enter
+
+3. Enter the search criteria.
+
+Example:
+
+   RIMA%
+
+4. Navigate to:
+
+   View > Query By Example > Run
+
+5. Verify the returned records.
+
+
+--------------------------------------------------
+ORACLE DATABASE CONNECTION
+--------------------------------------------------
+
+Oracle SQL Developer can be used to connect to the
+Oracle EBS database.
+
+Common connection information includes:
+
+- Username
+- Password
+- Hostname
+- Port
+- Service Name
+
+The Service Name identifies the Oracle Database service
+used for the connection.
+
+
+--------------------------------------------------
+ORACLE DEVELOPMENT TOOLS
+--------------------------------------------------
+
+The Oracle training environment provides tools used for
+Oracle EBS technical development, including:
+
+- SQL Developer
+- SQL*Plus
+- Oracle Forms Builder
+- Oracle Reports Builder
+
+
+--------------------------------------------------
+ORACLE EBS DATABASE
+--------------------------------------------------
+
+Oracle EBS uses an Oracle Database to store application
+data.
+
+The EBS database contains a large number of predefined
+tables used by different Oracle EBS modules.
+
+Application data can be queried using SQL when the
+appropriate database access is available.
+
+
+--------------------------------------------------
+DAY 03 OUTCOME
+--------------------------------------------------
+
+Gained practical experience navigating Oracle EBS,
+working with Responsibilities, creating and querying
+users, and connecting to the Oracle EBS database using
+Oracle development tools.

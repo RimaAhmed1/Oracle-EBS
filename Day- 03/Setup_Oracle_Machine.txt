@@ -1,0 +1,62 @@
+SETUP ORACLE MACHINE
+
+Objective:
+Set up and access the Oracle training environment required for
+Oracle EBS technical development.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Access the provided Oracle training machine.
+
+2. Log in using the credentials provided for the training
+   environment.
+
+3. Verify that the Oracle development environment is available.
+
+4. Open SQL*Plus.
+
+5. Connect to the Oracle Database.
+
+6. Verify the connected database user using:
+
+   SHOW USER;
+
+7. Verify the database connection by executing:
+
+   SELECT SYSDATE FROM DUAL;
+
+8. Open SQL Developer.
+
+9. Configure the Oracle Database connection using the required
+   connection details:
+
+   - Username
+   - Password
+   - Hostname
+   - Port
+   - Service Name
+
+10. Test the connection.
+
+11. Open Oracle Forms Builder and verify that it is available.
+
+12. Open Oracle Reports Builder and verify that it is available.
+
+--------------------------------------------------
+TOOLS USED
+--------------------------------------------------
+
+- Oracle SQL*Plus
+- Oracle SQL Developer
+- Oracle Forms Builder
+- Oracle Reports Builder
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+The Oracle training machine was accessed successfully and the
+required Oracle development tools were verified and ready for
+Oracle EBS technical development.

@@ -1,0 +1,56 @@
+QUERY BY EXAMPLE IN ORACLE EBS
+
+Objective:
+Use Query By Example (QBE) in Oracle EBS to search for and
+retrieve specific records.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Log in to Oracle EBS.
+
+2. Switch to the required Responsibility.
+
+3. Open the required Oracle EBS Form.
+
+4. Navigate to:
+
+   View > Query By Example > Enter
+
+5. The Form enters Query mode.
+
+6. Enter the required search criteria in the appropriate field.
+
+Example:
+
+   RIMA%
+
+7. The % symbol can be used as a wildcard to match multiple
+   values.
+
+8. Run the query by navigating to:
+
+   View > Query By Example > Run
+
+9. Oracle EBS retrieves the records that match the entered
+   search criteria.
+
+10. Verify that the required record is displayed.
+
+--------------------------------------------------
+EXAMPLE
+--------------------------------------------------
+
+Search Criteria:
+
+RIMA%
+
+This retrieves records whose value begins with "RIMA".
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+Query By Example was used successfully to search for and
+retrieve records from an Oracle EBS Form.

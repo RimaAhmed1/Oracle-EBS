@@ -1,0 +1,101 @@
+CREATE MASTER BLOCK "DEPT" AND DETAIL BLOCK "EMP"
+
+Objective:
+Create a Master-Detail Form in Oracle Forms Builder using
+DEPT as the Master Block and EMP as the Detail Block.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Open Oracle Forms Builder.
+
+2. Create a new Form Module.
+
+3. Create a Canvas for the Master-Detail Form.
+
+4. Open the Data Block Wizard.
+
+5. Select:
+   Table or View
+
+6. Create the first Data Block using the DEPT table.
+
+7. Select the required columns from DEPT.
+
+8. Complete the Data Block Wizard.
+
+9. Use the Layout Wizard to place the DEPT items on the Canvas.
+
+10. Open the Data Block Wizard again.
+
+11. Create the second Data Block using the EMP table.
+
+12. Select the required columns from EMP.
+
+13. Create a relationship between the two Data Blocks.
+
+14. Configure the relationship as:
+
+    Master Block : DEPT
+    Detail Block : EMP
+
+15. Use DEPTNO to define the relationship:
+
+    DEPT.DEPTNO = EMP.DEPTNO
+
+16. Complete the Data Block Wizard.
+
+17. Use the Layout Wizard to place the EMP items on the
+    same Canvas.
+
+18. Verify that DEPT is the Master Block and EMP is the
+    Detail Block.
+
+19. Save the Form Module as a .fmb file.
+
+20. Compile the Form to generate the .fmx file.
+
+21. Run the Form.
+
+22. Query a DEPT record and verify that the EMP Detail Block
+    displays employees belonging to the selected department.
+
+--------------------------------------------------
+RELATIONSHIP
+--------------------------------------------------
+
+DEPT
+  |
+  | DEPTNO
+  |
+  v
+EMP
+
+Master Block : DEPT
+Detail Block : EMP
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+A Master-Detail Form was created successfully using DEPT
+as the Master Block and EMP as the Detail Block.
+
+The EMP Detail Block displays employee records related to
+the currently selected DEPT record.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+master_detail_dept_emp.PNG
+
+The screenshot shows the DEPT and EMP Data Blocks configured
+in the Oracle Forms Builder Form Module.
+
+It also shows the Master-Detail related trigger and program
+units generated for the form.

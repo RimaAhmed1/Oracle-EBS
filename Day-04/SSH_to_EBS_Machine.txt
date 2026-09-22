@@ -1,0 +1,73 @@
+SSH TO EBS MACHINE
+
+Objective:
+Connect securely to the Oracle EBS server using SSH and
+verify access to the server environment.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Open an SSH client such as PuTTY or a terminal.
+
+2. Enter the hostname or IP address of the Oracle EBS
+   machine provided for the training environment.
+
+3. Use SSH as the connection protocol.
+
+4. Connect to the Oracle EBS machine.
+
+5. Enter the provided username and password when prompted.
+
+6. Verify that the SSH connection is established successfully.
+
+7. Check the currently logged-in user:
+
+   whoami
+
+8. Check the current working directory:
+
+   pwd
+
+9. List the files and directories:
+
+   ls
+
+10. Navigate to the required Oracle EBS application
+    directory when necessary.
+
+11. Oracle EBS environment directories can be accessed
+    from the server for application deployment and
+    technical administration tasks.
+
+--------------------------------------------------
+COMMANDS USED
+--------------------------------------------------
+
+whoami
+
+pwd
+
+ls
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+An SSH connection to the Oracle EBS machine was established
+successfully.
+
+The server environment was accessed and basic Linux commands
+were used to verify the current user, working directory,
+and available files.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+ssh_ebs_machine.PNG
+
+The screenshot shows a successful SSH session to the Oracle
+EBS machine and the execution of the whoami, pwd, and ls
+commands to verify server access and navigation.

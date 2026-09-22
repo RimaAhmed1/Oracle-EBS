@@ -1,0 +1,84 @@
+PLACE .FMX FILE IN ORACLE EBS
+
+Objective:
+Deploy a compiled Oracle Forms .fmx file to the Oracle EBS
+server.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Open the developed Form in Oracle Forms Builder.
+
+2. Save the Form Module as a .fmb file.
+
+3. Compile the Form Module.
+
+4. Verify that the compiled .fmx file is generated.
+
+Example:
+
+Source File:
+RIMAMASTERDETAILFORM.fmb
+
+Compiled File:
+RIMAMASTERDETAILFORM.fmx
+
+5. Open WinSCP.
+
+6. Connect to the Oracle EBS server using the provided
+   training credentials.
+
+7. Navigate to the Oracle EBS Forms directory:
+
+   APPL_TOP/fnd/12.0.0/forms/US
+
+8. Locate the compiled .fmx file on the local machine.
+
+9. Transfer the .fmx file to the EBS Forms directory.
+
+10. Verify that the .fmx file exists successfully in the
+    forms/US directory on the EBS server.
+
+--------------------------------------------------
+FORM DEPLOYMENT FLOW
+--------------------------------------------------
+
+Oracle Forms Builder
+        |
+        v
+      .fmb
+        |
+     Compile
+        |
+        v
+      .fmx
+        |
+     WinSCP
+        |
+        v
+EBS Server
+        |
+        v
+fnd/12.0.0/forms/US
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+The Oracle Form was compiled successfully and the generated
+.fmx file was transferred to the Oracle EBS Forms directory.
+
+The compiled Form is now available on the EBS server for
+Oracle EBS Form registration.
+
+--------------------------------------------------
+EVIDENCE
+--------------------------------------------------
+
+Screenshot:
+fmx_file_in_ebs.PNG
+
+The screenshot shows the compiled RIMAMASTERDETAILFORM.fmx
+file placed successfully in the Oracle EBS forms/US
+directory.

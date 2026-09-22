@@ -1,0 +1,129 @@
+DAY 04 - ORACLE EBS TECHNICAL TRAINING
+
+Topics Covered:
+
+1. Oracle Forms Builder
+2. Form Module
+3. Canvas
+4. Data Blocks
+5. Master-Detail Relationship
+6. DEPT Master Block
+7. EMP Detail Block
+8. Primary Key and Foreign Key Relationship
+9. Data Block Wizard
+10. Layout Wizard
+11. Saving and Compiling Oracle Forms
+12. FMB and FMX Files
+13. WinSCP File Transfer
+
+
+--------------------------------------------------
+MASTER-DETAIL RELATIONSHIP
+--------------------------------------------------
+
+A Master-Detail relationship connects two related Data Blocks.
+
+In this exercise:
+
+Master Block:
+DEPT
+
+Detail Block:
+EMP
+
+The relationship is based on DEPTNO:
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+DEPT.DEPTNO is the Primary Key.
+
+EMP.DEPTNO is the Foreign Key.
+
+
+--------------------------------------------------
+CREATING THE MASTER BLOCK
+--------------------------------------------------
+
+1. Open Oracle Forms Builder.
+
+2. Create a new Form Module.
+
+3. Create a Canvas.
+
+4. Open the Data Block Wizard.
+
+5. Select Table or View.
+
+6. Select the DEPT table.
+
+7. Select the required columns.
+
+8. Complete the Data Block Wizard.
+
+9. Use the Layout Wizard to place the DEPT items
+   on the Canvas.
+
+
+--------------------------------------------------
+CREATING THE DETAIL BLOCK
+--------------------------------------------------
+
+1. Open the Data Block Wizard again.
+
+2. Select the EMP table.
+
+3. Select the required EMP columns.
+
+4. Create a relationship with the DEPT block.
+
+5. Configure:
+
+   Master Block : DEPT
+   Detail Block : EMP
+
+6. Use DEPTNO as the relationship column.
+
+7. Complete the Data Block Wizard.
+
+8. Use the Layout Wizard to place the EMP items
+   on the Canvas.
+
+
+--------------------------------------------------
+FORM FILES
+--------------------------------------------------
+
+FMB:
+The .fmb file is the Oracle Forms source/development file.
+
+FMX:
+The .fmx file is the compiled executable version of the form.
+
+Development Flow:
+
+.fmb
+  |
+  | Compile
+  v
+.fmx
+
+
+--------------------------------------------------
+FILE TRANSFER
+--------------------------------------------------
+
+WinSCP can be used to transfer compiled Oracle Forms files
+from the development machine to the Oracle EBS server.
+
+The compiled .fmx file is transferred to the appropriate
+Oracle EBS Forms directory.
+
+
+--------------------------------------------------
+DAY 04 OUTCOME
+--------------------------------------------------
+
+Created a Master-Detail Oracle Form using the DEPT and EMP
+tables, configured the relationship using DEPTNO, and learned
+how Oracle Forms are saved as .fmb files and compiled into
+.fmx executable files for deployment to Oracle EBS.

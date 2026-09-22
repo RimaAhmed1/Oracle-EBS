@@ -1,0 +1,200 @@
+ORACLE EBS TECHNICAL TRAINING
+
+Topics Covered:
+
+1. NULL Values in Oracle SQL
+2. IS NULL Condition
+3. Oracle EBS User and Responsibility Navigation
+4. Query By Example (QBE)
+5. Oracle Forms Builder
+6. Canvas and Data Blocks
+7. DEPT and EMP Data Blocks
+8. Master-Detail Relationship
+9. FMB and FMX Files
+10. Oracle EBS Form Registration
+11. Form, Function and Menu
+12. PL/SQL Procedures
+13. PL/SQL Functions
+14. DBMS_OUTPUT
+15. SQL*Plus
+
+
+--------------------------------------------------
+NULL VALUES
+--------------------------------------------------
+
+NULL represents the absence of a value.
+
+To check for NULL values, IS NULL is used.
+
+Correct:
+
+SELECT *
+FROM EMP
+WHERE COMM IS NULL;
+
+Incorrect:
+
+SELECT *
+FROM EMP
+WHERE COMM = NULL;
+
+
+--------------------------------------------------
+ORACLE FORMS
+--------------------------------------------------
+
+Oracle Forms Builder is used to develop Forms that allow
+users to interact with data stored in the Oracle Database.
+
+The basic relationship is:
+
+Database Table  -> Data Block
+Table Column    -> Item
+Table Row       -> Record
+
+
+A Form can contain:
+
+Form Module
+    |
+    +-- Window
+         |
+         +-- Canvas
+              |
+              +-- Data Blocks
+                   |
+                   +-- Items
+
+
+--------------------------------------------------
+DEPT AND EMP MASTER-DETAIL
+--------------------------------------------------
+
+The DEPT and EMP tables can be used to create a
+Master-Detail Form.
+
+Master Block:
+DEPT
+
+Detail Block:
+EMP
+
+Relationship:
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+
+--------------------------------------------------
+FMB AND FMX
+--------------------------------------------------
+
+FMB:
+The source/development file created using Oracle Forms
+Builder.
+
+FMX:
+The compiled executable Form file.
+
+Flow:
+
+FMB
+ |
+ | Compile
+ v
+FMX
+
+
+--------------------------------------------------
+ORACLE EBS FORM REGISTRATION
+--------------------------------------------------
+
+After developing and compiling an Oracle Form, the .fmx
+file can be deployed to the Oracle EBS server.
+
+The Form can then be registered in Oracle EBS.
+
+Basic Registration Flow:
+
+FORM
+  |
+  v
+FUNCTION
+  |
+  v
+MENU
+  |
+  v
+RESPONSIBILITY
+  |
+  v
+USER
+
+
+--------------------------------------------------
+PL/SQL PROCEDURE
+--------------------------------------------------
+
+A Procedure is a named PL/SQL program unit used to perform
+a specific operation.
+
+Example:
+
+CREATE OR REPLACE PROCEDURE RIMA_PR_TEST
+IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('WELCOME TO ORACLE PROCEDURE');
+END;
+/
+
+To execute:
+
+SET SERVEROUTPUT ON;
+
+EXEC RIMA_PR_TEST;
+
+
+--------------------------------------------------
+PL/SQL FUNCTION
+--------------------------------------------------
+
+A Function is a named PL/SQL program unit that returns
+a value.
+
+Example:
+
+CREATE OR REPLACE FUNCTION RIMA_FN_TEST
+RETURN VARCHAR2
+IS
+BEGIN
+    RETURN 'WELCOME TO ORACLE FUNCTION';
+END;
+/
+
+The Function can be called using:
+
+SELECT RIMA_FN_TEST
+FROM DUAL;
+
+
+--------------------------------------------------
+PROCEDURE VS FUNCTION
+--------------------------------------------------
+
+Procedure:
+Performs an operation.
+
+Function:
+Returns a value.
+
+
+--------------------------------------------------
+DAY 05 OUTCOME
+--------------------------------------------------
+
+Practiced Oracle SQL and PL/SQL concepts including NULL
+handling, Procedures and Functions.
+
+Also gained practical experience with Oracle Forms,
+Master-Detail relationships, FMB/FMX files and the basic
+Oracle EBS Form registration flow.

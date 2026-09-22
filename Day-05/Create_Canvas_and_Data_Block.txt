@@ -1,0 +1,102 @@
+CREATE CANVAS AND DATA BLOCK IN ORACLE FORMS BUILDER
+
+Objective:
+Create a Canvas and a database Data Block using Oracle Forms
+Builder and display the selected database items on the Canvas.
+
+--------------------------------------------------
+STEPS
+--------------------------------------------------
+
+1. Open Oracle Forms Builder.
+
+2. Create a new Form Module.
+
+3. Connect to the Oracle Database.
+
+4. Create a new Canvas.
+
+5. Open the Data Block Wizard.
+
+6. Select:
+
+   Table or View
+
+7. Select the required database table.
+
+   Example:
+   EMP
+
+8. Select the required columns from the table.
+
+   Example:
+   EMPNO
+   ENAME
+   JOB
+   MGR
+   HIREDATE
+   SAL
+   COMM
+   DEPTNO
+
+9. Complete the Data Block Wizard.
+
+10. Open the Layout Wizard.
+
+11. Select the created Canvas.
+
+12. Select the Data Block items to be displayed.
+
+13. Select the required layout style.
+
+14. Complete the Layout Wizard.
+
+15. Verify that the Data Block and its Items are created
+    in the Object Navigator.
+
+16. Verify that the Items are displayed on the Canvas.
+
+17. Save the Form Module as a .fmb file.
+
+18. Compile the Form.
+
+--------------------------------------------------
+STRUCTURE
+--------------------------------------------------
+
+Database Table
+      |
+      v
+  Data Block
+      |
+      v
+    Items
+      |
+      v
+   Canvas
+
+Example:
+
+EMP Table
+    |
+    v
+EMP Data Block
+    |
+    +-- EMPNO
+    +-- ENAME
+    +-- JOB
+    +-- SAL
+    +-- DEPTNO
+    |
+    v
+Canvas
+
+--------------------------------------------------
+RESULT
+--------------------------------------------------
+
+A Canvas and database Data Block were successfully created
+using Oracle Forms Builder.
+
+The selected database columns were created as Items and
+displayed on the Canvas.

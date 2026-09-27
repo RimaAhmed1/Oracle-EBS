@@ -1,0 +1,405 @@
+============================================================
+DAY 06 - ORACLE EBS TECHNICAL TRAINING NOTES
+============================================================
+
+TOPICS COVERED:
+1. Normal PL/SQL Procedure
+2. Oracle EBS PL/SQL Procedure
+3. ERRBUF and RETCODE
+4. FND_FILE.PUT_LINE
+5. Registering a Stored Procedure in Oracle EBS
+6. Concurrent Executable
+7. Concurrent Program
+8. Request Group
+9. Submitting a Concurrent Request
+10. PL/SQL Exception Handling
+11. System-Defined Exceptions
+12. User-Defined Exceptions
+13. Factorial Task
+14. DUAL Table
+15. SYSDATE
+16. Current Date EBS Procedure
+
+
+============================================================
+1. NORMAL PL/SQL PROCEDURE
+============================================================
+
+A normal database procedure can use:
+
+DBMS_OUTPUT.PUT_LINE
+
+to display output in SQL*Plus or another Oracle SQL tool.
+
+Example:
+
+CREATE OR REPLACE PROCEDURE RIMA_PR_TEST
+IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('WELCOME TO ORACLE DATABASE PROCEDURE!');
+END;
+/
+
+To execute:
+
+SET SERVEROUTPUT ON;
+
+EXEC RIMA_PR_TEST;
+
+
+============================================================
+2. ORACLE EBS PROCEDURE
+============================================================
+
+A PL/SQL Stored Procedure registered as an Oracle EBS
+Concurrent Program uses two mandatory OUT parameters:
+
+ERRBUF  OUT VARCHAR2
+RETCODE OUT NUMBER
+
+ERRBUF:
+Used for an error/status message.
+
+RETCODE:
+Used for the completion status of the concurrent request.
+
+For EBS concurrent output, FND_FILE.PUT_LINE is used instead
+of DBMS_OUTPUT.PUT_LINE.
+
+
+============================================================
+3. FND_FILE
+============================================================
+
+FND_FILE.PUT_LINE is used by an Oracle EBS concurrent
+procedure to write information to the request output or log.
+
+FND_FILE.OUTPUT
+    -> Writes information to the Concurrent Request Output.
+
+FND_FILE.LOG
+    -> Writes information to the Concurrent Request Log.
+
+Example:
+
+FND_FILE.PUT_LINE(
+    FND_FILE.OUTPUT,
+    'WELCOME TO ORACLE EBS PROCEDURE!'
+);
+
+
+============================================================
+4. REGISTERING A PL/SQL PROCEDURE IN ORACLE EBS
+============================================================
+
+After creating the procedure in the database, register it
+in Oracle EBS.
+
+STEP 1 - EXECUTABLE
+
+Responsibility:
+Application Developer
+
+Navigation:
+Concurrent -> Executable
+
+Execution Method:
+PL/SQL Stored Procedure
+
+Execution File Name:
+Name of the stored procedure.
+
+
+STEP 2 - CONCURRENT PROGRAM
+
+Navigation:
+Concurrent -> Program
+
+Create the Concurrent Program and attach the Executable.
+
+
+STEP 3 - REQUEST GROUP
+
+A Request Group is a collection of Programs and Reports.
+
+Add the Concurrent Program to the required Request Group.
+
+
+STEP 4 - RESPONSIBILITY
+
+Attach the Request Group to the required Responsibility.
+
+
+STEP 5 - USER
+
+Assign the Responsibility to the required user.
+
+
+============================================================
+5. SUBMITTING THE CONCURRENT REQUEST
+============================================================
+
+Switch to the required Responsibility.
+
+Navigation:
+
+View
+  -> Requests
+      -> Submit a New Request
+          -> Single Request
+
+Select the required Concurrent Program.
+
+Click Submit.
+
+Refresh the request until it is completed.
+
+Then select:
+
+View Output
+
+
+COMPLETE FLOW:
+
+PL/SQL Procedure
+      |
+      v
+Executable
+      |
+      v
+Concurrent Program
+      |
+      v
+Request Group
+      |
+      v
+Responsibility
+      |
+      v
+User
+      |
+      v
+Submit Request
+      |
+      v
+View Output
+
+
+============================================================
+6. PL/SQL EXCEPTION HANDLING
+============================================================
+
+Exceptions are used for error handling in PL/SQL.
+
+Errors discussed during the training:
+
+1. Compilation Error
+   Example: Syntax error
+
+2. Runtime Error
+   Example: Wrong input from the end user
+
+
+============================================================
+7. SYSTEM-DEFINED EXCEPTIONS
+============================================================
+
+Examples covered:
+
+NO_DATA_FOUND
+TOO_MANY_ROWS
+ZERO_DIVIDE
+
+Example:
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('INPUT A VALID EMPNO !!');
+
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('CHECK YOUR PROGRAM !!!');
+
+
+============================================================
+8. USER-DEFINED EXCEPTION
+============================================================
+
+The steps discussed for a User-Defined Exception were:
+
+1. DECLARE
+2. CHECK
+3. RAISE
+4. HANDLE
+
+General idea:
+
+DECLARE
+    MY_EXCEPTION EXCEPTION;
+
+BEGIN
+
+    -- CHECK condition
+
+    IF condition THEN
+        RAISE MY_EXCEPTION;
+    END IF;
+
+EXCEPTION
+
+    WHEN MY_EXCEPTION THEN
+        -- HANDLE exception
+
+END;
+/
+
+
+============================================================
+9. FACTORIAL TASK
+============================================================
+
+Task:
+
+Write a PL/SQL program that accepts an input number and
+returns the factorial of that number.
+
+Example:
+
+Factorial of 5:
+
+5 * 4 * 3 * 2 * 1 = 120
+
+The task also required exception handling.
+
+The implementation is stored in:
+
+Factorial_Exception_Handling.sql
+
+
+============================================================
+10. DUAL TABLE
+============================================================
+
+DUAL is used in the training to execute expressions and
+Oracle functions without querying application data.
+
+Example:
+
+SELECT SYSDATE
+FROM DUAL;
+
+Another example:
+
+SELECT 1 + 2 + 3 * 4 * 5
+FROM DUAL;
+
+
+============================================================
+11. SYSDATE
+============================================================
+
+SYSDATE returns the current date from the Oracle Database.
+
+Example:
+
+SELECT SYSDATE
+FROM DUAL;
+
+
+============================================================
+12. SYSDATE ORACLE EBS PROCEDURE
+============================================================
+
+Task:
+
+Create a PL/SQL Stored Procedure to display the current date
+when submitting the request in Oracle EBS.
+
+The procedure:
+
+1. Gets SYSDATE from DUAL.
+2. Stores the date in a variable.
+3. Writes information to the Concurrent Request Log.
+4. Writes the current date to the Concurrent Request Output.
+5. Is registered as a Concurrent Program.
+6. Is submitted from an Oracle EBS Responsibility.
+
+Example:
+
+SELECT SYSDATE
+INTO V_DT
+FROM DUAL;
+
+FND_FILE.PUT_LINE(
+    FND_FILE.LOG,
+    'YOU CAN SEE LOG DETAILS HERE!'
+);
+
+FND_FILE.PUT_LINE(
+    FND_FILE.OUTPUT,
+    'CURRENT DATE = ' || V_DT
+);
+
+
+============================================================
+DAY 06 FILES
+============================================================
+
+Create_EBS_Procedure_and_Register.sql
+    -> Normal procedure + EBS procedure + registration flow
+
+Exception_Handling.sql
+    -> System-defined exception handling example
+
+Factorial_Exception_Handling.sql
+    -> Factorial task with exception handling
+
+SYSDATE_EBS_Procedure.sql
+    -> Current date concurrent procedure
+
+Day_06_Training_Notes.txt
+    -> Day 06 summary and revision notes
+
+
+============================================================
+KEY POINTS TO REMEMBER
+============================================================
+
+- Normal PL/SQL output:
+  DBMS_OUTPUT.PUT_LINE
+
+- EBS Concurrent Program output:
+  FND_FILE.PUT_LINE
+
+- Mandatory EBS procedure parameters:
+  ERRBUF OUT VARCHAR2
+  RETCODE OUT NUMBER
+
+- FND_FILE.OUTPUT:
+  Concurrent Request Output
+
+- FND_FILE.LOG:
+  Concurrent Request Log
+
+- Execution Method:
+  PL/SQL Stored Procedure
+
+- Request Group:
+  Collection of Programs and Reports
+
+- System-defined exceptions covered:
+  NO_DATA_FOUND
+  TOO_MANY_ROWS
+  ZERO_DIVIDE
+
+- User-defined exception:
+  DECLARE -> CHECK -> RAISE -> HANDLE
+
+- SYSDATE:
+  Returns the current Oracle Database date.
+
+- DUAL:
+  Used in the training to select functions and expressions.
+
+============================================================
+END OF DAY 06
+============================================================

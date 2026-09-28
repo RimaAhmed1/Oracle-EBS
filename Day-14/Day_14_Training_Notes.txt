@@ -1,0 +1,626 @@
+DAY 14 - TRAINING NOTES
+Oracle EBS Technical Training
+
+Topics:
+
+- RTF Reports Revision
+- BI Publisher Charts
+- Pivot Table
+- BI Publisher in Oracle Fusion Cloud
+- OTBI
+- Forms Triggers
+- Reports Triggers
+
+
+==================================================
+1. RTF REPORT TASK REVISION
+==================================================
+
+The RTF reporting task continued during Day 14.
+
+Two reports were required:
+
+1. RTF based on a Master-Detail Report.
+
+2. RTF based on a Parameterized Report.
+
+
+==================================================
+2. MASTER-DETAIL REPORT
+==================================================
+
+For the Master-Detail Report, the report style can be:
+
+- Group Above
+- Group Left
+
+Example query:
+
+SELECT *
+FROM EMP, DEPT
+WHERE EMP.DEPTNO = DEPT.DEPTNO;
+
+
+The Query Builder example included fields from both
+DEPT and EMP.
+
+Example:
+
+DEPT.DEPTNO
+DEPT.DNAME
+DEPT.LOC
+EMP.EMPNO
+EMP.ENAME
+EMP.JOB
+EMP.MGR
+EMP.HIREDATE
+EMP.SAL
+EMP.COMM
+EMP.DEPTNO
+
+
+==================================================
+3. MASTER-DETAIL REPORT FLOW
+==================================================
+
+The Master-Detail Report process discussed was:
+
+Create Report
+    ↓
+Save RDF
+    ↓
+Move RDF to EBS Server
+    ↓
+Create Executable
+    ↓
+Create Concurrent Program
+    ↓
+Set Output Format
+    ↓
+Add Program to Request Group
+    ↓
+Switch Responsibility
+    ↓
+Submit Request
+    ↓
+View Output
+
+
+==================================================
+4. EBS VS BI PUBLISHER OUTPUT
+==================================================
+
+The training discussed:
+
+HTML
+→ EBS
+
+XML
+→ BI Publisher
+
+For BI Publisher template development, the Concurrent
+Program output is generated as XML.
+
+The XML can then be loaded as Sample XML into
+BI Publisher Desktop.
+
+
+==================================================
+5. PARAMETERIZED REPORT
+==================================================
+
+The Parameterized Report uses:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is a Bind Parameter.
+
+The parameter is used to filter employees according
+to the selected DEPTNO.
+
+
+==================================================
+6. WORKING WITH RTF TEMPLATES
+==================================================
+
+The RTF template process discussed was:
+
+1. Load Sample XML.
+
+2. Open Table Wizard.
+
+3. Group By:
+
+   DEPTNO
+
+4. Sort By:
+
+   ENAME
+
+5. Finish the Table Wizard.
+
+6. Save the template as:
+
+   .rtf
+
+
+==================================================
+7. BI PUBLISHER GRAPH
+==================================================
+
+BI Publisher can be used to create graphical report
+components.
+
+The following were practiced:
+
+- Bar Chart
+- Pie Chart
+- Pivot Table
+
+
+==================================================
+8. BAR CHART
+==================================================
+
+The Bar Chart was based on:
+
+SUM(SAL)
++
+DEPTNO
+
+Purpose:
+
+Display the total salary for each Department.
+
+Concept:
+
+DEPTNO
+   ↓
+SUM(SAL)
+
+
+==================================================
+9. PIE CHART
+==================================================
+
+The Pie Chart was based on:
+
+SUM(SAL)
++
+MGR
+
+Purpose:
+
+Display total salary according to Manager.
+
+Concept:
+
+MGR
+ ↓
+SUM(SAL)
+
+
+==================================================
+10. PIVOT TABLE
+==================================================
+
+The Pivot Table was based on:
+
+COUNT(EMPLOYEES)
+
+under each:
+
+MGR
+
+for every:
+
+DEPTNO
+
+
+Concept:
+
+DEPTNO
+   ↓
+MGR
+   ↓
+COUNT(EMPLOYEES)
+
+
+==================================================
+11. BI PUBLISHER REPORTS IN ORACLE FUSION CLOUD
+==================================================
+
+BI Publisher Reports were also discussed in the context
+of Oracle Fusion Cloud.
+
+BIP in Oracle Fusion Cloud includes:
+
+1. Catalog
+
+2. Data Model
+
+3. Layout
+
+4. Output
+
+5. Parameter
+
+6. OTBI
+
+
+==================================================
+12. CATALOG
+==================================================
+
+The Catalog contains report-related objects.
+
+The following folders were discussed:
+
+My Folders
+
+Shared Folders
+
+
+My Folders:
+
+Used for personal/private report content.
+
+
+Shared Folders:
+
+Used for report content that can be shared with
+other users according to access permissions.
+
+
+==================================================
+13. DATA MODEL
+==================================================
+
+Data Model represents the data/query used by the report.
+
+Concept:
+
+Data Model
+    ↓
+Query
+    ↓
+Report Data
+
+
+==================================================
+14. LAYOUT
+==================================================
+
+Layout represents the design and presentation of
+the report.
+
+Concept:
+
+Data Model
+    ↓
+Layout
+    ↓
+Report Output
+
+
+==================================================
+15. OUTPUT
+==================================================
+
+BI Publisher supports multiple output formats.
+
+The report can be generated in different formats
+depending on the reporting requirement.
+
+
+==================================================
+16. PARAMETER
+==================================================
+
+Parameters can be used to control or filter report data.
+
+Example:
+
+DEPTNO
+
+A user can provide a parameter value and the report
+returns the corresponding data.
+
+
+==================================================
+17. OTBI
+==================================================
+
+OTBI stands for:
+
+Oracle Transactional Business Intelligence
+
+The following OTBI concepts were introduced:
+
+- Analysis
+- Prompts
+- Dashboards
+
+
+==================================================
+18. OTBI ANALYSIS
+==================================================
+
+Analysis is used to analyze and display business data.
+
+It can be used to create reports and analyze
+transactional information.
+
+
+==================================================
+19. OTBI PROMPTS
+==================================================
+
+Prompts allow users to provide or select values that
+control the data displayed in an Analysis or Dashboard.
+
+
+==================================================
+20. OTBI DASHBOARDS
+==================================================
+
+Dashboards provide a visual area where reports and
+analyses can be presented to users.
+
+
+==================================================
+21. TRIGGERS IN ORACLE FORMS
+==================================================
+
+A Trigger executes automatically when a specific event
+occurs.
+
+Forms Triggers discussed:
+
+1. WHEN-NEW-FORM-INSTANCE
+
+2. WHEN-NEW-ITEM-INSTANCE
+
+3. WHEN-VALIDATE-ITEM
+
+
+==================================================
+22. WHEN-NEW-FORM-INSTANCE
+==================================================
+
+WHEN-NEW-FORM-INSTANCE fires when the Form enters
+runtime.
+
+Concept:
+
+Form Starts Runtime
+        ↓
+WHEN-NEW-FORM-INSTANCE
+        ↓
+Trigger Fires
+
+
+==================================================
+23. WHEN-NEW-ITEM-INSTANCE
+==================================================
+
+WHEN-NEW-ITEM-INSTANCE fires when the cursor enters
+an Item or Field.
+
+Concept:
+
+Cursor Enters Item
+        ↓
+WHEN-NEW-ITEM-INSTANCE
+        ↓
+Trigger Fires
+
+
+==================================================
+24. WHEN-VALIDATE-ITEM
+==================================================
+
+WHEN-VALIDATE-ITEM fires when an Item value is changed
+and the Item is validated.
+
+Example:
+
+SAL = 3000
+
+Change SAL to:
+
+SAL = 9000
+
+The Item value changes and validation occurs.
+
+WHEN-VALIDATE-ITEM fires.
+
+
+==================================================
+25. REPORT TRIGGERS
+==================================================
+
+Five Report Triggers were discussed:
+
+1. Before Parameter Form
+
+2. After Parameter Form
+
+3. Before Report
+
+4. Between Pages
+
+5. After Report
+
+
+==================================================
+26. BEFORE PARAMETER FORM
+==================================================
+
+This Trigger fires before the Parameter Form is displayed
+and before the user enters report parameter values.
+
+Example:
+
+A DEPTNO parameter is defined for a report.
+
+Before asking the user to enter DEPTNO:
+
+Before Parameter Form
+fires.
+
+
+==================================================
+27. AFTER PARAMETER FORM
+==================================================
+
+This Trigger fires after the report parameter values
+have been entered.
+
+Example:
+
+User enters DEPTNO.
+
+After Parameter Form
+fires.
+
+
+==================================================
+28. BEFORE REPORT
+==================================================
+
+Before Report fires before the report is executed
+and displayed.
+
+Concept:
+
+Parameters Completed
+       ↓
+Before Report
+       ↓
+Report Runs
+
+
+==================================================
+29. BETWEEN PAGES
+==================================================
+
+Between Pages fires between report pages.
+
+It is triggered before the next report page is
+displayed.
+
+
+==================================================
+30. AFTER REPORT
+==================================================
+
+After Report fires after report processing is completed.
+
+It is the final Report Trigger in the report trigger
+sequence.
+
+
+==================================================
+31. REPORT TRIGGER SEQUENCE
+==================================================
+
+The Report Triggers discussed were:
+
+Before Parameter Form
+        ↓
+After Parameter Form
+        ↓
+Before Report
+        ↓
+Between Pages
+        ↓
+After Report
+
+
+==================================================
+32. IMPORTANT DAY 14 POINTS
+==================================================
+
+- Master-Detail reports can use Group Above or Group Left.
+- :DNO is a Bind Parameter.
+- XML output is used for BI Publisher template development.
+- Sample XML can be loaded into BI Publisher Desktop.
+- Table Wizard is used to create report layouts.
+- Reports can be grouped by DEPTNO.
+- Employee data can be sorted by ENAME.
+- BI Publisher templates can be saved as RTF.
+- Bar Chart was based on SUM(SAL) and DEPTNO.
+- Pie Chart was based on SUM(SAL) and MGR.
+- Pivot Table counted employees under each MGR for
+  every DEPTNO.
+- BI Publisher is available in Oracle Fusion Cloud.
+- Catalog contains My Folders and Shared Folders.
+- Data Model represents the report query/data.
+- Layout represents the report design.
+- BI Publisher supports multiple output formats.
+- Reports can contain Parameters.
+- OTBI stands for Oracle Transactional Business Intelligence.
+- OTBI includes Analysis, Prompts, and Dashboards.
+- Forms Triggers execute when Form events occur.
+- WHEN-NEW-FORM-INSTANCE fires when the Form enters runtime.
+- WHEN-NEW-ITEM-INSTANCE fires when the cursor enters an Item.
+- WHEN-VALIDATE-ITEM fires during Item validation.
+- Oracle Reports has five Report Triggers discussed in
+  the training.
+
+
+==================================================
+33. DAY 14 PRACTICAL SUMMARY
+==================================================
+
+RTF Reports
+     ↓
+Load Sample XML
+     ↓
+Table Wizard
+     ↓
+Group / Sort
+     ↓
+RTF Template
+
+
+BI Publisher Visualization
+     ↓
+----------------------------------
+|               |                |
+Bar Chart     Pie Chart      Pivot Table
+|               |                |
+DEPTNO          MGR         DEPTNO + MGR
+|               |                |
+SUM(SAL)      SUM(SAL)     COUNT(EMPLOYEES)
+----------------------------------
+
+
+Oracle Fusion Cloud BIP
+     ↓
+Catalog
+     ↓
+Data Model
+     ↓
+Layout
+     ↓
+Output
+     ↓
+Parameter
+     ↓
+OTBI
+
+
+Triggers
+     ↓
+Forms Triggers
++
+Reports Triggers
+
+
+==================================================
+DAY 14 COMPLETED
+==================================================

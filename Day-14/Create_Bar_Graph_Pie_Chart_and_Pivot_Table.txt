@@ -1,0 +1,334 @@
+Task: Create Bar Graph, Pie Chart, and Pivot Table in BI Publisher
+
+Objective:
+Create graphical and analytical report components using
+employee data in BI Publisher.
+
+The practical task includes:
+
+1. Bar Chart
+2. Pie Chart
+3. Pivot Table
+
+
+==================================================
+1. LOAD SAMPLE XML
+==================================================
+
+1. Open Microsoft Word.
+
+2. Open the BI Publisher ribbon.
+
+3. Load the Sample XML containing employee data.
+
+4. Verify that the XML contains the required fields.
+
+Important fields for this task:
+
+- DEPTNO
+- MGR
+- SAL
+- EMPNO
+- ENAME
+
+
+==================================================
+2. CREATE BAR CHART
+==================================================
+
+Requirement:
+
+Create a Bar Chart based on:
+
+SUM(SAL)
+and
+DEPTNO
+
+
+Steps:
+
+1. Open the BI Publisher tools.
+
+2. Insert a Chart.
+
+3. Select:
+
+   Chart Type:
+   Bar Chart
+
+4. Use:
+
+   DEPTNO
+
+   as the department/category field.
+
+5. Use:
+
+   SAL
+
+   as the value field.
+
+6. Apply the aggregation:
+
+   SUM(SAL)
+
+7. Complete the chart configuration.
+
+8. Preview the chart.
+
+
+==================================================
+3. BAR CHART RESULT
+==================================================
+
+The Bar Chart displays the total salary for each department.
+
+Concept:
+
+DEPTNO
+   ↓
+SUM(SAL)
+
+Example structure:
+
+Department 10
+→ Total Salary
+
+Department 20
+→ Total Salary
+
+Department 30
+→ Total Salary
+
+Department 40
+→ Total Salary
+
+
+==================================================
+4. CREATE PIE CHART
+==================================================
+
+Requirement:
+
+Create a Pie Chart based on:
+
+SUM(SAL)
+and
+MGR
+
+
+Steps:
+
+1. Insert another Chart.
+
+2. Select:
+
+   Chart Type:
+   Pie Chart
+
+3. Use:
+
+   MGR
+
+   as the grouping/category field.
+
+4. Use:
+
+   SAL
+
+   as the value field.
+
+5. Apply the aggregation:
+
+   SUM(SAL)
+
+6. Complete the chart configuration.
+
+7. Preview the Pie Chart.
+
+
+==================================================
+5. PIE CHART RESULT
+==================================================
+
+The Pie Chart displays salary totals according to Manager.
+
+Concept:
+
+MGR
+ ↓
+SUM(SAL)
+
+Each section of the Pie Chart represents a Manager and
+the corresponding total salary.
+
+
+==================================================
+6. CREATE PIVOT TABLE
+==================================================
+
+Requirement:
+
+Create a Pivot Table based on:
+
+COUNT(EMPLOYEES)
+
+under each:
+
+MGR
+
+for every:
+
+DEPTNO
+
+
+==================================================
+7. CONFIGURE PIVOT TABLE
+==================================================
+
+1. Insert a Pivot Table.
+
+2. Use DEPTNO as one grouping dimension.
+
+3. Use MGR as the second grouping dimension.
+
+4. Use employee data as the measure.
+
+5. Apply:
+
+   COUNT
+
+   to calculate the number of employees.
+
+The Pivot Table should show the number of employees
+under each Manager for every Department.
+
+
+==================================================
+8. PIVOT TABLE STRUCTURE
+==================================================
+
+Concept:
+
+DEPTNO
+   ↓
+MGR
+   ↓
+COUNT(EMPLOYEES)
+
+
+Example structure:
+
+Department
+    ↓
+Manager
+    ↓
+Number of Employees
+
+
+The Pivot Table allows employee counts to be analyzed
+across both Department and Manager.
+
+
+==================================================
+9. SAVE THE TEMPLATE
+==================================================
+
+After creating:
+
+- Bar Chart
+- Pie Chart
+- Pivot Table
+
+Save the BI Publisher template.
+
+Save the template as:
+
+Rich Text Format (.rtf)
+
+
+==================================================
+10. PREVIEW OUTPUT
+==================================================
+
+Use BI Publisher Preview to verify the report.
+
+Check that:
+
+- The Bar Chart displays SUM(SAL) by DEPTNO.
+- The Pie Chart displays SUM(SAL) by MGR.
+- The Pivot Table displays employee count under each
+  MGR for every DEPTNO.
+
+
+==================================================
+TASK FLOW
+==================================================
+
+Sample XML
+    ↓
+BI Publisher Desktop
+    ↓
+Microsoft Word
+    ↓
+--------------------------------
+|              |               |
+Bar Chart    Pie Chart      Pivot Table
+    |            |               |
+DEPTNO         MGR         DEPTNO + MGR
+    |            |               |
+SUM(SAL)      SUM(SAL)     COUNT(EMPLOYEES)
+--------------------------------
+    ↓
+Save as RTF
+    ↓
+Preview Output
+
+
+==================================================
+IMPORTANT POINTS
+==================================================
+
+Bar Chart:
+
+DEPTNO
++
+SUM(SAL)
+
+
+Pie Chart:
+
+MGR
++
+SUM(SAL)
+
+
+Pivot Table:
+
+DEPTNO
++
+MGR
++
+COUNT(EMPLOYEES)
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created:
+
+1. Bar Chart based on SUM(SAL) and DEPTNO.
+
+2. Pie Chart based on SUM(SAL) and MGR.
+
+3. Pivot Table based on the count of employees under
+   each Manager for every Department.
+
+The BI Publisher report components were successfully
+created and previewed.
+
+
+==================================================
+TASK COMPLETED
+==================================================

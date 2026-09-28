@@ -1,0 +1,139 @@
+CREATE TABLE VALIDATED VALUE SET
+=========================================
+
+Purpose:
+Create a Value Set in Oracle EBS that retrieves valid values
+directly from an Oracle Database table.
+
+------------------------------------------------------------
+1. OPEN VALUE SET FORM
+------------------------------------------------------------
+
+Navigate to:
+
+Application Developer
+    -> Application
+    -> Validation
+    -> Set
+
+
+------------------------------------------------------------
+2. CREATE VALUE SET
+------------------------------------------------------------
+
+Enter the Value Set information.
+
+Validation Type:
+Table
+
+The Table validation type allows the Value Set to retrieve
+its valid values from a database table.
+
+
+------------------------------------------------------------
+3. DEFINE TABLE VALIDATION
+------------------------------------------------------------
+
+For the Department Number example, the values are retrieved
+from the EMP table.
+
+Table Name:
+EMP
+
+Value Column:
+DEPTNO
+
+The Value Set retrieves department numbers from the table
+instead of requiring the user to manually enter any value.
+
+
+------------------------------------------------------------
+4. PURPOSE
+------------------------------------------------------------
+
+A Table Validated Value Set gets its valid values from
+a database table or view.
+
+Example:
+
+EMP.DEPTNO
+
+This allows Department Number values stored in the database
+to be available when the parameter is entered.
+
+
+------------------------------------------------------------
+5. USE WITH A CONCURRENT PROGRAM
+------------------------------------------------------------
+
+The Value Set can be attached to a Concurrent Program
+parameter.
+
+Example:
+
+Parameter:
+Department Number
+
+Value Set:
+Table Validated Value Set
+
+Token:
+DNO
+
+
+------------------------------------------------------------
+6. CONNECTION WITH THE REPORT
+------------------------------------------------------------
+
+The Oracle Report query can contain:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+The Concurrent Program parameter uses:
+
+Token = DNO
+
+The Value Set provides the valid Department Number values.
+
+
+------------------------------------------------------------
+7. FLOW
+------------------------------------------------------------
+
+EMP Table
+    |
+    v
+DEPTNO Column
+    |
+    v
+Table Validated Value Set
+    |
+    v
+Concurrent Program Parameter
+    |
+    v
+Token = DNO
+    |
+    v
+Bind Parameter :DNO
+    |
+    v
+Oracle Report
+
+
+------------------------------------------------------------
+IMPORTANT POINTS
+------------------------------------------------------------
+
+- A Value Set defines valid values or validation rules.
+- Validation Type = Table retrieves values from a database
+  table or view.
+- EMP.DEPTNO can be used to provide Department Number values.
+- The Value Set can be attached to a Concurrent Program
+  parameter.
+- The Token connects the Concurrent Program parameter to
+  the report bind parameter.
+- DNO is the Token.
+- :DNO is the Bind Parameter in the report query.

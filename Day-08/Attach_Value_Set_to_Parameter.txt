@@ -1,0 +1,174 @@
+ATTACH VALUE SET TO CONCURRENT PROGRAM PARAMETER
+=========================================================
+
+Purpose:
+Attach a Value Set to a Concurrent Program parameter so the
+parameter accepts validated values when the report is submitted.
+
+
+------------------------------------------------------------
+1. OPEN CONCURRENT PROGRAM
+------------------------------------------------------------
+
+Navigate to:
+
+Application Developer
+    -> Concurrent
+    -> Program
+
+Open the required Concurrent Program.
+
+
+------------------------------------------------------------
+2. OPEN PARAMETERS
+------------------------------------------------------------
+
+Click Parameters.
+
+Create or select the parameter used by the report.
+
+Example:
+
+Parameter:
+Department Number
+
+
+------------------------------------------------------------
+3. ATTACH THE VALUE SET
+------------------------------------------------------------
+
+In the Value Set field, select the Value Set created for
+Department Number.
+
+The Value Set controls the valid values available for the
+parameter.
+
+
+------------------------------------------------------------
+4. DEFINE THE TOKEN
+------------------------------------------------------------
+
+Set the Token as:
+
+DNO
+
+The Token connects the Concurrent Program parameter with
+the Bind Parameter used in the Oracle Report.
+
+
+------------------------------------------------------------
+5. REPORT BIND PARAMETER
+------------------------------------------------------------
+
+The report query uses:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+Here:
+
+:DNO = Bind Parameter in Oracle Reports
+
+DNO = Token in the Concurrent Program
+
+
+------------------------------------------------------------
+6. SAVE THE PARAMETER
+------------------------------------------------------------
+
+Save the changes.
+
+The Concurrent Program parameter is now connected to the
+Value Set and the report Bind Parameter.
+
+
+------------------------------------------------------------
+7. SUBMIT THE REQUEST
+------------------------------------------------------------
+
+Navigate to:
+
+View
+    -> Requests
+    -> Submit a New Request
+
+Select the Concurrent Program.
+
+Enter or select a Department Number from the parameter.
+
+Example:
+
+Department Number = 10
+
+Submit the request.
+
+
+------------------------------------------------------------
+8. RESULT
+------------------------------------------------------------
+
+The selected value is passed through the Token to the
+report Bind Parameter.
+
+Example:
+
+User selects:
+10
+
+        |
+        v
+
+Value Set
+
+        |
+        v
+
+Concurrent Program Parameter
+
+        |
+        v
+
+Token = DNO
+
+        |
+        v
+
+Bind Parameter = :DNO
+
+        |
+        v
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+        |
+        v
+
+Report displays employees from Department 10.
+
+
+------------------------------------------------------------
+IMPORTANT POINTS
+------------------------------------------------------------
+
+- A Value Set validates or provides values for a parameter.
+
+- The Value Set is attached to the Concurrent Program
+  parameter.
+
+- The Token connects the Concurrent Program parameter
+  with the report parameter.
+
+- Token:
+  DNO
+
+- Bind Parameter:
+  :DNO
+
+- The colon (:) is used in the report Bind Parameter,
+  but not in the Concurrent Program Token.
+
+- The parameter value is entered when the Concurrent
+  Request is submitted.

@@ -1,0 +1,214 @@
+DAY 08 - VALUE SETS AND CONCURRENT PROGRAM PARAMETERS
+=====================================================
+
+1. VALUE SET
+------------
+A Value Set defines the valid values or validation rules
+for a parameter or flexfield segment.
+
+Value Sets help control the values that users can enter
+or select in Oracle EBS.
+
+
+2. COMMON VALUE SET VALIDATION TYPES
+------------------------------------
+Common validation types include:
+
+- None
+- Independent
+- Dependent
+- Table
+
+
+3. NONE VALUE SET
+-----------------
+Validation Type: None
+
+There is no predefined list of valid values.
+
+The user can enter a value according to the defined
+format and data type.
+
+
+4. INDEPENDENT VALUE SET
+------------------------
+Validation Type: Independent
+
+The valid values are predefined and do not depend on
+another Value Set.
+
+Example:
+
+MUSCAT
+DHOFAR
+AL BURAIMI
+
+
+5. DEPENDENT VALUE SET
+----------------------
+Validation Type: Dependent
+
+The available values depend on a value selected from
+an Independent Value Set.
+
+Example:
+
+Independent Value Set:
+Governorate = MUSCAT
+
+Dependent Value Set:
+Wilayat values related to MUSCAT
+
+
+6. TABLE VALIDATED VALUE SET
+----------------------------
+Validation Type: Table
+
+The valid values are retrieved from a database table
+or view.
+
+Example:
+
+Table:
+EMP
+
+Value Column:
+DEPTNO
+
+This allows Department Numbers stored in the database
+to be used as valid parameter values.
+
+
+7. VALUE SET NAVIGATION
+-----------------------
+Navigate to:
+
+Application Developer
+    -> Application
+    -> Validation
+    -> Set
+
+
+8. VALUE SET WITH CONCURRENT PROGRAM
+------------------------------------
+A Value Set can be attached to a Concurrent Program
+parameter.
+
+Example:
+
+Parameter:
+Department Number
+
+Value Set:
+Department Number Value Set
+
+Token:
+DNO
+
+
+9. BIND PARAMETER
+-----------------
+A Bind Parameter receives a value at runtime.
+
+Example:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is the Bind Parameter.
+
+
+10. TOKEN
+---------
+The Token connects the Concurrent Program parameter
+with the parameter used by the Oracle Report.
+
+Example:
+
+Concurrent Program Token:
+DNO
+
+Oracle Report Bind Parameter:
+:DNO
+
+Important:
+
+Token      = DNO
+Bind       = :DNO
+
+
+11. PARAMETER FLOW
+------------------
+
+Database Table
+      |
+      v
+Value Set
+      |
+      v
+Concurrent Program Parameter
+      |
+      v
+Token
+      |
+      v
+Bind Parameter
+      |
+      v
+Oracle Report
+
+
+12. EXAMPLE
+-----------
+Query:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+When the user submits the Concurrent Request and selects:
+
+Department Number = 10
+
+the value is passed to:
+
+Token = DNO
+
+and then to:
+
+Bind Parameter = :DNO
+
+The report displays the employees belonging to
+Department 10.
+
+
+13. IMPORTANT POINTS
+--------------------
+- A Value Set controls or validates values.
+
+- Independent Value Sets contain predefined values.
+
+- Dependent Value Sets depend on another Value Set.
+
+- Table Validated Value Sets retrieve values from a
+  database table or view.
+
+- A Value Set can be attached to a Concurrent Program
+  parameter.
+
+- A Bind Parameter accepts a value at runtime.
+
+- Bind Parameters use a colon (:).
+
+- Tokens do not use a colon.
+
+- Example:
+  Token = DNO
+  Bind Parameter = :DNO
+
+- Concurrent Program parameters allow users to provide
+  values when submitting a request.
+
+- Value Sets help ensure that valid values are passed
+  to the report.

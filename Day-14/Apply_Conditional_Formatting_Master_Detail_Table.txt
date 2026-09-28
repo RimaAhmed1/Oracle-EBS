@@ -1,0 +1,231 @@
+Task: Apply Conditional Formatting to the Master-Detail Table
+
+Objective:
+Apply Conditional Formatting to the SAL field in the
+Master-Detail Report using BI Publisher Desktop.
+
+==================================================
+1. OPEN THE RTF TEMPLATE
+==================================================
+
+1. Open Microsoft Word.
+
+2. Open the Master-Detail RTF template.
+
+3. Open the BI Publisher ribbon.
+
+4. Make sure the Sample XML is loaded.
+
+
+==================================================
+2. SELECT THE SAL FIELD
+==================================================
+
+Select the SAL field in the Master-Detail table.
+
+Data Field:
+
+SAL
+
+Data Type:
+
+Number
+
+
+==================================================
+3. OPEN CONDITIONAL FORMATTING
+==================================================
+
+Open the BI Publisher Conditional Formatting properties.
+
+Configure the Data Field as:
+
+SAL
+
+Type:
+
+Number
+
+Enable:
+
+Apply to Entire Table Row
+
+
+==================================================
+4. CREATE CONDITION 1
+==================================================
+
+Create the first condition:
+
+Data Field:
+
+SAL
+
+Condition:
+
+Less than
+
+Value:
+
+5000
+
+Formatting:
+
+Red
+
+
+This means:
+
+SAL < 5000
+→ Apply Red Formatting
+
+
+==================================================
+5. CREATE CONDITION 2
+==================================================
+
+Create the second condition:
+
+Data Field:
+
+SAL
+
+Condition:
+
+Greater than
+
+Value:
+
+10000
+
+Formatting:
+
+Green
+
+
+This means:
+
+SAL > 10000
+→ Apply Green Formatting
+
+
+==================================================
+6. CONDITIONAL FORMATTING LOGIC
+==================================================
+
+SAL < 5000
+    ↓
+RED
+
+
+SAL > 10000
+    ↓
+GREEN
+
+
+SAL between 5000 and 10000
+    ↓
+No Conditional Formatting
+
+
+==================================================
+7. APPLY TO ENTIRE TABLE ROW
+==================================================
+
+The option:
+
+Apply to Entire Table Row
+
+was enabled.
+
+Therefore, when the SAL value satisfies one of the
+conditions, the formatting is applied to the entire
+corresponding table row.
+
+
+==================================================
+8. SAVE THE RTF TEMPLATE
+==================================================
+
+1. Apply the Conditional Formatting.
+
+2. Click OK.
+
+3. Save the updated template.
+
+4. Save the file as:
+
+   Rich Text Format (.rtf)
+
+
+==================================================
+9. PREVIEW THE REPORT
+==================================================
+
+Use BI Publisher Preview to verify the result.
+
+Expected behavior:
+
+SAL < 5000
+→ Entire row formatted in Red
+
+SAL > 10000
+→ Entire row formatted in Green
+
+SAL between 5000 and 10000
+→ Default formatting
+
+
+==================================================
+CONDITIONAL FORMATTING FLOW
+==================================================
+
+Master-Detail RTF
+        ↓
+Select SAL
+        ↓
+Conditional Formatting
+        ↓
+Data Type: Number
+        ↓
+Apply to Entire Table Row
+        ↓
+--------------------------------
+|                              |
+SAL < 5000                SAL > 10000
+    ↓                          ↓
+   RED                       GREEN
+--------------------------------
+        ↓
+Save RTF
+        ↓
+Preview Report
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully applied Conditional Formatting to the
+Master-Detail table based on the SAL field.
+
+Condition 1:
+
+SAL < 5000
+→ Red
+
+Condition 2:
+
+SAL > 10000
+→ Green
+
+The formatting was configured to apply to the entire
+table row.
+
+The updated RTF template was saved and previewed
+successfully.
+
+
+==================================================
+TASK COMPLETED
+==================================================

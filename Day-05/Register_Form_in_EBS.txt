@@ -1,0 +1,195 @@
+REGISTER FORM IN ORACLE EBS
+===========================
+
+Purpose:
+Register a custom Oracle Form in Oracle EBS so that it can
+be accessed from an EBS responsibility.
+
+
+------------------------------------------------------------
+1. CREATE THE FORM
+------------------------------------------------------------
+
+Create the form using Oracle Forms Builder.
+
+Save the source file as:
+
+.fmb
+
+Compile the form to generate:
+
+.fmx
+
+
+------------------------------------------------------------
+2. PLACE THE FMX FILE ON THE EBS SERVER
+------------------------------------------------------------
+
+Copy the compiled .fmx file to the appropriate Oracle EBS
+forms directory on the server.
+
+
+------------------------------------------------------------
+3. REGISTER THE FORM
+------------------------------------------------------------
+
+Navigate to:
+
+Application Developer
+    -> Application
+    -> Form
+
+Enter the required information:
+
+Form:
+Custom Form Name
+
+Application:
+Select the required application
+
+User Form Name:
+Enter the name that will identify the form in EBS.
+
+Save.
+
+
+------------------------------------------------------------
+4. CREATE A FUNCTION
+------------------------------------------------------------
+
+Navigate to:
+
+Application Developer
+    -> Application
+    -> Function
+
+Create a new function.
+
+Enter:
+
+Function:
+Unique Function Name
+
+User Function Name:
+User-friendly function name
+
+Type:
+Form
+
+
+------------------------------------------------------------
+5. DEFINE FORM FOR THE FUNCTION
+------------------------------------------------------------
+
+Go to the Form tab.
+
+Select the registered form.
+
+Save the function.
+
+
+------------------------------------------------------------
+6. ADD FUNCTION TO MENU
+------------------------------------------------------------
+
+Navigate to:
+
+Application Developer
+    -> Application
+    -> Menu
+
+Query the required menu.
+
+Add the new Function to the menu.
+
+Save.
+
+
+------------------------------------------------------------
+7. RESPONSIBILITY
+------------------------------------------------------------
+
+The menu is associated with a Responsibility.
+
+The Responsibility determines which users can access
+the menu and therefore the registered form.
+
+
+------------------------------------------------------------
+8. ASSIGN RESPONSIBILITY TO USER
+------------------------------------------------------------
+
+If required, navigate to:
+
+System Administrator
+    -> Security
+    -> User
+    -> Define
+
+Query the required user.
+
+Assign the Responsibility.
+
+Save.
+
+
+------------------------------------------------------------
+9. TEST THE FORM
+------------------------------------------------------------
+
+Login to Oracle EBS.
+
+Open the assigned Responsibility.
+
+Open the menu.
+
+Select the custom form.
+
+Verify that the form opens successfully.
+
+
+------------------------------------------------------------
+REGISTRATION FLOW
+------------------------------------------------------------
+
+FMB
+ |
+ v
+Compile
+ |
+ v
+FMX
+ |
+ v
+Place FMX on EBS Server
+ |
+ v
+Register Form
+ |
+ v
+Create Function
+ |
+ v
+Add Function to Menu
+ |
+ v
+Responsibility
+ |
+ v
+User
+ |
+ v
+Open Form in EBS
+
+
+------------------------------------------------------------
+IMPORTANT POINTS
+------------------------------------------------------------
+
+- FMB is the Oracle Forms source file.
+- FMX is the compiled executable form file.
+- The form must be registered in Oracle EBS.
+- A Function is created for the registered form.
+- The Function is added to a Menu.
+- The Menu is associated with a Responsibility.
+- The Responsibility can be assigned to a User.

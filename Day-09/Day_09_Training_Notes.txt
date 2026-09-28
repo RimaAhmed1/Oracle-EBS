@@ -1,0 +1,387 @@
+DAY 09 - ORACLE EBS TRAINING NOTES
+==================================
+
+
+1. ORACLE DATABASE OBJECTS
+--------------------------
+
+Oracle Database Objects covered:
+
+1. Table
+2. View
+3. Synonym
+4. Sequence
+5. Index
+6. Procedures
+7. Functions
+8. Triggers
+9. Packages
+
+SQL Queries can include:
+
+- SELECT
+- Joins
+- Subqueries
+- SQL Functions
+
+
+2. MULTI-ORG / TYPES OF ORGANIZATION
+------------------------------------
+
+Multi-Org is related to setting up and implementing
+organizations in Oracle EBS.
+
+The organization types covered are:
+
+1. Set of Books
+2. Business Group
+3. Legal Entity
+4. Balancing Entity
+5. Operating Unit
+6. Inventory Organization
+
+
+3. SET OF BOOKS - 3 Cs
+----------------------
+
+A Set of Books includes the 3 Cs:
+
+1. Chart of Accounts (COA)
+2. Calendar
+3. Currency
+
+Calendar:
+Defines the fiscal year.
+
+Currency:
+Defines the currency used by the organization.
+
+Example:
+
+Oman -> OMR
+
+
+4. BUSINESS GROUP
+-----------------
+
+Business Group is related to management.
+
+
+5. LEGAL ENTITY
+---------------
+
+A Legal Entity represents a registered company
+in a country.
+
+
+6. BALANCING ENTITY
+-------------------
+
+A Balancing Entity is related to financial statements.
+
+Examples:
+
+- Profit and Loss (P&L)
+- Balance Sheet
+
+
+7. OPERATING UNIT
+-----------------
+
+Examples of Operating Units:
+
+- HR
+- Finance
+- Sales
+- Marketing
+
+
+8. INVENTORY ORGANIZATION
+-------------------------
+
+Every Operating Unit consists of one or more
+Inventory Organizations.
+
+
+9. PROFILE OPTIONS
+------------------
+
+A Profile is a set of changeable options that affects
+the way an Oracle EBS application runs.
+
+Types covered:
+
+1. User Profile
+2. System Defined Profile
+
+
+10. PROFILE LEVELS
+------------------
+
+Profile Options can be set at different levels:
+
+1. Site
+2. Application
+3. Responsibility
+4. User
+
+Site:
+Lowest level.
+Applies when users log in to EBS.
+
+Application:
+Applies to a particular application.
+
+Example:
+Human Resources
+
+Responsibility:
+Applies to a particular responsibility.
+
+User:
+Highest level.
+Applies to a particular user.
+
+
+11. FORM PERSONALIZATION
+------------------------
+
+Form Personalization is used to change form properties
+and behavior.
+
+Examples covered:
+
+- Changing a field name
+- Enabling or disabling a field
+- Making a field mandatory
+
+
+12. FORM PERSONALIZATION LAB
+----------------------------
+
+Responsibility:
+
+Human Resources, Vision Enterprises
+
+Form:
+
+Enter and Maintain
+
+The STATUS field was changed to:
+
+MARITAL STATUS
+
+
+13. IDENTIFY FIELD INFORMATION
+------------------------------
+
+To identify the field:
+
+Select the field.
+
+Navigate to:
+
+Help
+    -> Diagnostics
+    -> Examine
+
+Field information used in the lab:
+
+Block:
+PERSON
+
+Field:
+D_MARITAL_STATUS
+
+
+14. OPEN FORM PERSONALIZATION
+-----------------------------
+
+Navigate to:
+
+Help
+    -> Diagnostics
+    -> Custom Code
+    -> Personalize
+
+
+15. CHANGE FIELD NAME
+---------------------
+
+Target Object:
+
+PERSON.D_MARITAL_STATUS
+
+The field display was changed from:
+
+STATUS
+
+to:
+
+MARITAL STATUS
+
+Then:
+
+Validate
+Apply Now
+Save
+
+
+16. MAKE FIELD MANDATORY
+------------------------
+
+Object Name:
+
+PERSON.D_MARITAL_STATUS
+
+Property:
+
+REQUIRED
+
+Value:
+
+TRUE
+
+Then:
+
+Validate
+Apply Now
+Save
+
+Result:
+
+The MARITAL STATUS field becomes mandatory
+and appears in yellow.
+
+
+17. UTILITIES DIAGNOSTICS PROFILE
+---------------------------------
+
+Navigate to:
+
+System Administrator
+    -> Profile
+    -> System
+
+Search:
+
+UTIL%
+
+Profile:
+
+Utilities: Diagnostics
+
+Setting:
+
+Site -> No
+
+After disabling Utilities: Diagnostics, the
+Form Personalization page cannot be opened through:
+
+Help
+    -> Diagnostics
+    -> Custom Code
+    -> Personalize
+
+
+18. FLEXFIELDS
+--------------
+
+Flexfields are flexible fields used in Oracle EBS.
+
+Two types covered:
+
+1. KFF - Key Flexfields
+2. DFF - Descriptive Flexfields
+
+
+19. KEY FLEXFIELD (KFF)
+-----------------------
+
+KFF = Key Flexfield
+
+In the training notes, KFF was associated with:
+
+Primary Key (PK)
+
+
+20. DESCRIPTIVE FLEXFIELD (DFF)
+-------------------------------
+
+DFF = Descriptive Flexfield
+
+In Oracle EBS forms, it can be represented using:
+
+[ ]
+
+Example:
+
+ADDRESS [ ]
+
+Additional information can include:
+
+- Address 1
+- Address 2
+- City
+- State
+- Pincode
+
+
+21. EBS BACKEND TABLES
+----------------------
+
+Examples reviewed:
+
+FND_USER
+
+Used to view information related to EBS users.
+
+Command:
+
+DESC FND_USER;
+
+
+Another object reviewed:
+
+FND_CONCURRENT_PROGRAMS_VL
+
+Command:
+
+DESC FND_CONCURRENT_PROGRAMS_VL;
+
+
+22. IMPORTANT POINTS
+--------------------
+
+- Oracle Database contains different database objects
+  such as Tables, Views, Synonyms, Sequences and Indexes.
+
+- PL/SQL objects include Procedures, Functions,
+  Triggers and Packages.
+
+- Multi-Org includes different organization types.
+
+- Set of Books uses the 3 Cs:
+  Chart of Accounts, Calendar and Currency.
+
+- Profile Options affect how Oracle EBS applications run.
+
+- Profile levels:
+  Site -> Application -> Responsibility -> User
+
+- Site is the lowest level in the training notes.
+
+- User is the highest level in the training notes.
+
+- Form Personalization can modify form properties
+  without changing the standard form directly.
+
+- REQUIRED = TRUE makes a field mandatory.
+
+- A mandatory field appears yellow in the lab.
+
+- Utilities: Diagnostics controls access to diagnostic
+  functionality used for Form Personalization.
+
+- Flexfields are divided into:
+  KFF and DFF.

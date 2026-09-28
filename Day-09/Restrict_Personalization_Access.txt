@@ -1,0 +1,132 @@
+RESTRICT PERSONALIZATION ACCESS USING PROFILE OPTION
+====================================================
+
+Purpose:
+Control access to Form Personalization in Oracle EBS
+using the Utilities Diagnostics profile option.
+
+
+------------------------------------------------------------
+1. OPEN SYSTEM PROFILE VALUES
+------------------------------------------------------------
+
+Navigate to:
+
+System Administrator
+    -> Profile
+    -> System
+
+
+------------------------------------------------------------
+2. SEARCH FOR THE PROFILE
+------------------------------------------------------------
+
+Search using:
+
+Profile:
+UTIL%
+
+Click Find.
+
+
+------------------------------------------------------------
+3. UTILITIES DIAGNOSTICS
+------------------------------------------------------------
+
+Find the profile option:
+
+Utilities: Diagnostics
+
+This profile option controls access to diagnostic
+functionality used to access Form Personalization.
+
+
+------------------------------------------------------------
+4. PROFILE LEVELS
+------------------------------------------------------------
+
+Profile options can be set at different levels:
+
+1. Site
+2. Application
+3. Responsibility
+4. User
+
+Site = applies to all users in the EBS instance.
+
+User = applies to a particular user.
+
+
+------------------------------------------------------------
+5. RESTRICT ACCESS AT SITE LEVEL
+------------------------------------------------------------
+
+Set:
+
+Utilities: Diagnostics = No
+
+at:
+
+Site Level
+
+Save the changes.
+
+
+------------------------------------------------------------
+6. TEST THE RESULT
+------------------------------------------------------------
+
+Open:
+
+Human Resources
+
+Then navigate to:
+
+Help
+    -> Diagnostics
+    -> Custom Code
+    -> Personalize
+
+Result:
+
+The Personalization form cannot be opened when
+Utilities: Diagnostics is disabled.
+
+
+------------------------------------------------------------
+7. SPECIFIC USER LEVEL
+------------------------------------------------------------
+
+To control the profile option for a particular user,
+set the Utilities: Diagnostics profile option at
+the User level for that user.
+
+The User level applies to the selected user rather
+than all users in the site.
+
+
+------------------------------------------------------------
+IMPORTANT POINTS
+------------------------------------------------------------
+
+- Profile options affect how Oracle EBS applications run.
+
+- Profile levels covered:
+  Site
+  Application
+  Responsibility
+  User
+
+- Site is the lowest level.
+
+- User is the highest level.
+
+- Utilities: Diagnostics is used to control access to
+  diagnostic functionality.
+
+- Setting Utilities: Diagnostics to No prevents access
+  to the Form Personalization page.
+
+- Site level affects all users.
+
+- User level applies to a specific user.

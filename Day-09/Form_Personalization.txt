@@ -1,0 +1,189 @@
+- FORM PERSONALIZATION
+=============================
+
+Purpose:
+Use Oracle EBS Form Personalization to modify form behavior
+without directly modifying the standard Oracle Form.
+
+
+------------------------------------------------------------
+1. ADD HUMAN RESOURCES RESPONSIBILITY
+------------------------------------------------------------
+
+Navigate to:
+
+System Administrator
+    -> Security
+    -> User
+    -> Define
+
+Query the required username.
+
+Add the responsibility:
+
+Human Resources, Vision Enterprises
+
+Save the changes.
+
+
+------------------------------------------------------------
+2. OPEN HUMAN RESOURCES
+------------------------------------------------------------
+
+Navigate to:
+
+Human Resources, Vision Enterprises
+    -> Enter and Maintain
+
+
+------------------------------------------------------------
+3. IDENTIFY THE FIELD
+------------------------------------------------------------
+
+Select the STATUS field.
+
+Navigate to:
+
+Help
+    -> Diagnostics
+    -> Examine
+
+Field information:
+
+Block:
+PERSON
+
+Field:
+D_MARITAL_STATUS
+
+
+------------------------------------------------------------
+4. OPEN FORM PERSONALIZATION
+------------------------------------------------------------
+
+Navigate to:
+
+Help
+    -> Diagnostics
+    -> Custom Code
+    -> Personalize
+
+
+------------------------------------------------------------
+5. CHANGE FIELD NAME
+------------------------------------------------------------
+
+Create a personalization rule.
+
+Description:
+
+Changing Field Name
+
+Go to the Actions tab.
+
+Target Object:
+
+PERSON.D_MARITAL_STATUS
+
+Configure the action to change the displayed field name
+from:
+
+STATUS
+
+to:
+
+MARITAL STATUS
+
+Validate the personalization.
+
+Click:
+
+Apply Now
+
+Save the changes.
+
+Close and reopen the form.
+
+Result:
+
+The STATUS field is displayed as MARITAL STATUS.
+
+
+------------------------------------------------------------
+6. MAKE MARITAL STATUS REQUIRED
+------------------------------------------------------------
+
+Open Form Personalization again:
+
+Help
+    -> Diagnostics
+    -> Custom Code
+    -> Personalize
+
+Create another personalization rule.
+
+Description:
+
+Making a Field MANDATE
+
+Go to the Actions tab.
+
+Object Name:
+
+PERSON.D_MARITAL_STATUS
+
+Property:
+
+REQUIRED
+
+Value:
+
+TRUE
+
+Click:
+
+Validate
+Apply Now
+Save
+
+
+------------------------------------------------------------
+7. RESULT
+------------------------------------------------------------
+
+The MARITAL STATUS field becomes mandatory.
+
+The field appears in yellow, indicating that it is required.
+
+
+------------------------------------------------------------
+FORM PERSONALIZATION EXAMPLES
+------------------------------------------------------------
+
+Form Personalization can be used for changes such as:
+
+- Changing a field name
+- Enabling or disabling a field
+- Making a field mandatory
+
+
+------------------------------------------------------------
+IMPORTANT
+------------------------------------------------------------
+
+Form Personalization allows changes to the behavior or
+properties of an Oracle EBS form.
+
+In this exercise:
+
+STATUS
+    |
+    v
+PERSON.D_MARITAL_STATUS
+    |
+    v
+Form Personalization
+    |
+    +---- Change displayed name to MARITAL STATUS
+    |
+    +---- Set REQUIRED = TRUE

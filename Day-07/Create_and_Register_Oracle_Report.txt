@@ -1,0 +1,264 @@
+============================================================
+- CREATE AND REGISTER ORACLE REPORT IN EBS
+============================================================
+
+TASK:
+Create an Oracle Report using Oracle Reports Builder,
+generate the RDF file, deploy it to the Oracle EBS server,
+register it as a Concurrent Program, and run it from EBS.
+
+
+============================================================
+1. CREATE THE REPORT
+============================================================
+
+1. Open Oracle Reports Builder.
+
+2. Create a new Report Module.
+
+3. Select:
+   Use the Report Wizard
+
+4. Connect to the Oracle Database.
+
+5. Open Query Builder.
+
+6. Select the EMP table and the required columns.
+
+Example query:
+
+SELECT *
+FROM EMP;
+
+
+============================================================
+2. REPORT STYLES
+============================================================
+
+The following report styles were covered during training:
+
+- Tabular
+- Group Left
+- Group Above
+- Matrix
+- Matrix with Group
+- Form
+- Form Letter
+- Mailing Label
+
+Example:
+
+Tabular
+-> Displays data in rows and columns.
+
+Group Above
+-> Displays the group/master information above its
+   related detail records.
+
+Group Left
+-> Displays group information to the left of the
+   detail records.
+
+Matrix
+-> Displays data using rows, columns, and cells.
+
+
+============================================================
+3. AGGREGATE FUNCTIONS
+============================================================
+
+Aggregate functions can be added to the report.
+
+Examples:
+
+COUNT(EMPNO)
+SUM(SAL)
+
+COUNT:
+Returns the number of records.
+
+SUM:
+Returns the total of numeric values.
+
+
+============================================================
+4. SAVE THE REPORT
+============================================================
+
+Save the report as an RDF file.
+
+Example:
+
+RIMA_EMP_REPORT.rdf
+
+RDF is the Oracle Reports file used for the report.
+
+
+============================================================
+5. MOVE RDF TO EBS SERVER
+============================================================
+
+Use WinSCP to transfer the RDF file to the appropriate
+Oracle EBS Reports runtime directory.
+
+NOTE:
+Server IP addresses, usernames, passwords, and
+environment-specific paths are intentionally not stored
+in this repository.
+
+
+============================================================
+6. CREATE EXECUTABLE IN EBS
+============================================================
+
+Responsibility:
+Application Developer
+
+Navigate to:
+
+Concurrent
+-> Executable
+
+Create a new Executable.
+
+Execution Method:
+
+Oracle Reports
+
+Execution File Name:
+
+Use the RDF file name without the .rdf extension.
+
+Example:
+
+RIMA_EMP_REPORT.rdf
+
+becomes:
+
+RIMA_EMP_REPORT
+
+
+============================================================
+7. CREATE CONCURRENT PROGRAM
+============================================================
+
+Navigate to:
+
+Concurrent
+-> Program
+
+Create a new Concurrent Program.
+
+Attach the Executable created in the previous step.
+
+Save the Concurrent Program.
+
+
+============================================================
+8. ADD PROGRAM TO REQUEST GROUP
+============================================================
+
+Switch to the System Administrator Responsibility.
+
+Navigate to:
+
+Security
+-> Responsibility
+-> Request
+
+Query the Request Group associated with the required
+Responsibility.
+
+Add the Concurrent Program to the Request Group.
+
+Save the changes.
+
+
+============================================================
+9. SUBMIT THE REPORT
+============================================================
+
+Switch to the required Responsibility.
+
+Navigate to:
+
+View
+-> Requests
+-> Submit a New Request
+
+Select:
+
+Single Request
+
+Select the registered Oracle Report.
+
+Submit the request.
+
+Refresh the request until:
+
+Phase  : Completed
+Status : Normal
+
+Select:
+
+View Output
+
+to view the generated report.
+
+
+============================================================
+COMPLETE FLOW
+============================================================
+
+Oracle Reports Builder
+        |
+        v
+Create Report
+        |
+        v
+Create SQL Query
+        |
+        v
+Design Report
+        |
+        v
+Save as RDF
+        |
+        v
+Move RDF to EBS Server
+        |
+        v
+Create Executable
+        |
+        v
+Create Concurrent Program
+        |
+        v
+Add to Request Group
+        |
+        v
+Submit Request
+        |
+        v
+View Output
+
+
+============================================================
+IMPORTANT NOTES
+============================================================
+
+FMB -> Oracle Forms source file
+FMX -> Oracle Forms runtime file
+
+RDF -> Oracle Reports file
+
+Execution Method for an Oracle Report:
+Oracle Reports
+
+Concurrent Program:
+A registered program/report that can be submitted and
+executed in the background through Oracle EBS.
+
+============================================================
+END
+============================================================

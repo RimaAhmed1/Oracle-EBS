@@ -1,0 +1,190 @@
+DAY 07 - ORACLE REPORTS AND PARAMETERIZED REPORTS
+=================================================
+
+1. ORACLE REPORTS
+-----------------
+Oracle Reports Builder is used to create formatted reports
+based on data retrieved from the Oracle Database.
+
+A report can retrieve data using a SQL query and display
+the result in a structured format.
+
+Common Report Styles:
+- Tabular
+- Form-like
+- Mailing Label
+- Group Above
+- Group Left
+- Matrix
+- Matrix with Group
+
+
+2. REPORT DEVELOPMENT FLOW
+--------------------------
+Basic report development flow:
+
+SQL Query
+   |
+   v
+Data Model
+   |
+   v
+Report Layout
+   |
+   v
+RDF File
+   |
+   v
+Register in Oracle EBS
+   |
+   v
+Submit Concurrent Request
+   |
+   v
+View Output
+
+
+3. RDF FILE
+-----------
+RDF is the source file created by Oracle Reports Builder.
+
+The RDF file contains the report definition, including:
+- Query
+- Data Model
+- Layout
+- Parameters
+
+
+4. REGISTERING AN ORACLE REPORT IN EBS
+--------------------------------------
+To run an Oracle Report from Oracle EBS:
+
+1. Create the report using Oracle Reports Builder.
+2. Save the report as an RDF file.
+3. Place the report file in the required EBS directory.
+4. Register an Executable.
+5. Select "Oracle Reports" as the Execution Method.
+6. Create a Concurrent Program.
+7. Attach the Executable to the Concurrent Program.
+8. Add the Concurrent Program to a Request Group.
+9. Submit the report using Submit Request.
+10. View the generated output.
+
+
+5. PARAMETERIZED REPORT
+-----------------------
+A Parameterized Report allows the user to provide a value
+when running the report.
+
+Example:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is a Bind Parameter.
+
+Example:
+
+If the user enters:
+
+DNO = 10
+
+the report displays employees belonging to Department 10.
+
+
+6. BIND PARAMETER
+-----------------
+A Bind Parameter accepts a value at runtime.
+
+Syntax:
+
+:DNO
+
+The colon (:) identifies DNO as a bind parameter.
+
+Example:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+
+7. VALUE SET
+------------
+A Value Set defines the valid values or validation rules
+for a parameter.
+
+A Value Set can be attached to a Concurrent Program
+parameter to control the values that the user can enter.
+
+
+8. TOKEN
+--------
+The Token connects the Concurrent Program parameter
+with the report parameter.
+
+Example:
+
+Report Bind Parameter:
+:DNO
+
+Concurrent Program Token:
+DNO
+
+The Token is written without the colon (:).
+
+
+9. PARAMETERIZED REPORT FLOW
+----------------------------
+
+User enters DNO
+      |
+      v
+Value Set
+      |
+      v
+Concurrent Program Parameter
+      |
+      v
+Token = DNO
+      |
+      v
+Bind Parameter = :DNO
+      |
+      v
+Oracle Report
+      |
+      v
+Filtered Report Output
+
+
+10. REPORT SUMMARY FUNCTIONS
+----------------------------
+Oracle Reports can also calculate summary values.
+
+Examples:
+
+SUM
+COUNT
+AVG
+MIN
+MAX
+
+Example:
+SUM(SAL)
+
+This can be used to calculate the total salary.
+
+
+11. IMPORTANT POINTS
+--------------------
+- Oracle Reports Builder is used to create formatted reports.
+- RDF is the Oracle Reports source file.
+- Oracle Reports can be registered as Concurrent Programs in EBS.
+- A Bind Parameter receives a value at runtime.
+- Bind Parameters use a colon, for example :DNO.
+- The Concurrent Program Token does not use the colon.
+- A Value Set controls or validates parameter values.
+- The report must be added to a Request Group before it can
+  be submitted from the required responsibility.

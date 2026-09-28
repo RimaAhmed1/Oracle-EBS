@@ -1,0 +1,219 @@
+DAY 10 - TRAINING NOTES
+Oracle EBS Technical Training
+
+==================================================
+1. VALUE SETS
+==================================================
+
+A Value Set defines the valid values and validation rules that can
+be used for parameters and flexfield segments in Oracle EBS.
+
+Navigation:
+
+Application Developer
+→ Application
+→ Validation
+→ Set
+
+
+==================================================
+2. VALUE SET VALIDATION TYPES
+==================================================
+
+The main Value Set validation types covered were:
+
+1. None
+2. Independent
+3. Dependent
+4. Table
+
+
+--------------------------------------------------
+NONE VALUE SET
+--------------------------------------------------
+
+A None Value Set does not provide a predefined list of valid values.
+
+The user can enter a value according to the defined format.
+
+
+--------------------------------------------------
+INDEPENDENT VALUE SET
+--------------------------------------------------
+
+An Independent Value Set contains a predefined list of values.
+
+The values do not depend on another Value Set.
+
+Example:
+
+Governorate:
+- MUSCAT
+- AL DAKHILIYAH
+
+
+--------------------------------------------------
+DEPENDENT VALUE SET
+--------------------------------------------------
+
+A Dependent Value Set contains values that depend on a value
+selected from an Independent Value Set.
+
+Example:
+
+Independent Value:
+MUSCAT
+
+Dependent Values:
+- MUTTRAH
+- BAWSHAR
+- SEEB
+
+
+Independent Value:
+AL DAKHILIYAH
+
+Dependent Values:
+- NIZWA
+- BAHLA
+- IZKI
+
+
+Relationship:
+
+Independent Value Set
+        ↓
+Dependent Value Set
+
+
+==================================================
+3. TABLE VALIDATED VALUE SET
+==================================================
+
+A Table Validated Value Set retrieves its valid values from
+a database table.
+
+Example:
+
+Table Name:
+EMP
+
+Column:
+DEPTNO
+
+The available values are retrieved from the DEPTNO column
+in the EMP table.
+
+
+==================================================
+4. CREATING VALUE SETS
+==================================================
+
+Value Sets are created using:
+
+Application Developer
+→ Application
+→ Validation
+→ Set
+
+Values for Independent and Dependent Value Sets can be maintained
+using:
+
+Application Developer
+→ Application
+→ Validation
+→ Values
+
+
+==================================================
+5. INDEPENDENT AND DEPENDENT VALUE SET PRACTICE
+==================================================
+
+The practical task was to create:
+
+- One Independent Value Set
+- Two Dependent Value Sets
+
+Independent Value Set:
+
+RIMA_GOVERNORATE_VS
+
+Dependent Value Sets:
+
+RIMA_MUSCAT_WILAYAT_VS
+RIMA_DAKHILIYAH_WILAYAT_VS
+
+The Dependent Value Sets provide values according to the value
+selected from the Independent Value Set.
+
+
+==================================================
+6. VALUE SETS AND CONCURRENT PROGRAM PARAMETERS
+==================================================
+
+A Value Set can be attached to a Concurrent Program parameter.
+
+The Value Set controls the values that can be entered or selected
+when submitting the Concurrent Program.
+
+Example:
+
+Parameter:
+Department Number
+
+Value Set:
+A Table Validated Value Set based on EMP.DEPTNO
+
+Query used in a parameterized report:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is a bind parameter.
+
+The Value Set can be attached to the DNO parameter so that the
+user can select a valid department number when submitting the
+request.
+
+
+==================================================
+7. IMPORTANT POINTS
+==================================================
+
+- Value Sets are created in Oracle EBS.
+- A Value Set defines valid values and validation rules.
+- Independent values do not depend on another Value Set.
+- Dependent values depend on an Independent Value Set.
+- Table Validated Value Sets retrieve values from a database table.
+- Value Sets can be attached to Concurrent Program parameters.
+- Parameters allow values to be supplied when a report or program
+  is submitted.
+- Bind parameters are referenced using a colon (:).
+
+Example:
+
+:DNO
+
+
+==================================================
+8. DAY 10 PRACTICAL TASK
+==================================================
+
+Task:
+
+Create one Independent Value Set and two Dependent Value Sets.
+
+Created:
+
+Independent:
+RIMA_GOVERNORATE_VS
+
+Dependent:
+RIMA_MUSCAT_WILAYAT_VS
+RIMA_DAKHILIYAH_WILAYAT_VS
+
+
+==================================================
+DAY 10 COMPLETED
+==================================================

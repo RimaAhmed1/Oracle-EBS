@@ -1,0 +1,166 @@
+Task: Create One Independent Value Set and Two Dependent Value Sets
+
+Objective:
+Create one Independent Value Set and two Dependent Value Sets in Oracle EBS.
+
+==================================================
+1. Create Independent Value Set
+==================================================
+
+Navigation:
+Application Developer
+→ Application
+→ Validation
+→ Set
+
+Steps:
+
+1. Open the Value Sets form.
+
+2. Create a new Value Set with the following details:
+
+   Value Set Name: RIMA_GOVERNORATE_VS
+   Validation Type: Independent
+
+3. Save the Value Set.
+
+4. Navigate to:
+
+   Application Developer
+   → Application
+   → Validation
+   → Values
+
+5. Query the Value Set:
+
+   RIMA_GOVERNORATE_VS
+
+6. Add the following Independent Values:
+
+   - MUSCAT
+   - AL DAKHILIYAH
+
+7. Save the values.
+
+
+==================================================
+2. Create First Dependent Value Set
+==================================================
+
+Navigation:
+Application Developer
+→ Application
+→ Validation
+→ Set
+
+Steps:
+
+1. Create a new Value Set.
+
+2. Enter the following details:
+
+   Value Set Name: RIMA_MUSCAT_WILAYAT_VS
+   Validation Type: Dependent
+   Independent Value Set: RIMA_GOVERNORATE_VS
+
+3. Save the Value Set.
+
+4. Navigate to:
+
+   Application Developer
+   → Application
+   → Validation
+   → Values
+
+5. Query the Value Set:
+
+   RIMA_MUSCAT_WILAYAT_VS
+
+6. Select the Independent Value:
+
+   MUSCAT
+
+7. Add the following Dependent Values:
+
+   - MUTTRAH
+   - BAWSHAR
+   - SEEB
+
+8. Save the values.
+
+
+==================================================
+3. Create Second Dependent Value Set
+==================================================
+
+Navigation:
+Application Developer
+→ Application
+→ Validation
+→ Set
+
+Steps:
+
+1. Create another Dependent Value Set.
+
+2. Enter the following details:
+
+   Value Set Name: RIMA_DAKHILIYAH_WILAYAT_VS
+   Validation Type: Dependent
+   Independent Value Set: RIMA_GOVERNORATE_VS
+
+3. Save the Value Set.
+
+4. Navigate to:
+
+   Application Developer
+   → Application
+   → Validation
+   → Values
+
+5. Query the Value Set:
+
+   RIMA_DAKHILIYAH_WILAYAT_VS
+
+6. Select the Independent Value:
+
+   AL DAKHILIYAH
+
+7. Add the following Dependent Values:
+
+   - NIZWA
+   - BAHLA
+   - IZKI
+
+8. Save the values.
+
+
+==================================================
+Result
+==================================================
+
+Successfully created:
+
+Independent Value Set:
+- RIMA_GOVERNORATE_VS
+
+Dependent Value Sets:
+- RIMA_MUSCAT_WILAYAT_VS
+- RIMA_DAKHILIYAH_WILAYAT_VS
+
+The Dependent Value Sets display values based on the selected
+Independent Value.
+
+For example:
+
+MUSCAT
+→ MUTTRAH
+→ BAWSHAR
+→ SEEB
+
+AL DAKHILIYAH
+→ NIZWA
+→ BAHLA
+→ IZKI
+
+Task completed successfully.

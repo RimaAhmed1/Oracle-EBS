@@ -1,0 +1,212 @@
+Task: Create LOV for DEPTNO Using Record Group
+
+Objective:
+Create a List of Values (LOV) for the DEPTNO field in an EMP form
+using a Record Group in Oracle Forms.
+
+==================================================
+1. CREATE THE EMP FORM
+==================================================
+
+1. Open Oracle Forms Builder.
+
+2. Create a new Form Module.
+
+3. Create a Data Block using the Data Block Wizard.
+
+4. Select the EMP table.
+
+5. Select the required EMP columns.
+
+6. Complete the Data Block Wizard.
+
+7. Use the Layout Wizard to create the layout.
+
+8. Save the Form Module.
+
+
+==================================================
+2. CREATE A RECORD GROUP
+==================================================
+
+An LOV is based on a Record Group.
+
+1. In the Object Navigator, locate:
+
+   Record Groups
+
+2. Create a new Record Group.
+
+3. Select:
+
+   Record Group based on a query
+
+4. Enter the following SQL query:
+
+   SELECT DEPTNO, DNAME
+   FROM DEPT
+   ORDER BY DEPTNO;
+
+5. The Record Group retrieves the department number and
+   department name from the DEPT table.
+
+6. Complete the Record Group creation.
+
+
+==================================================
+3. CREATE THE LOV
+==================================================
+
+1. In the Object Navigator, locate:
+
+   LOVs
+
+2. Create a new LOV.
+
+3. Use the LOV Wizard.
+
+4. Select the Record Group created for the department values.
+
+5. Select the following columns to display:
+
+   - DEPTNO
+   - DNAME
+
+6. Configure the Return Value so that the selected department
+   number is returned to:
+
+   EMP.DEPTNO
+
+7. Complete the LOV Wizard.
+
+
+==================================================
+4. ATTACH THE LOV TO DEPTNO
+==================================================
+
+1. Open the Property Palette for the DEPTNO item.
+
+2. Set the LOV property to the LOV created for DEPTNO.
+
+3. Ensure that the selected DEPTNO value is returned to:
+
+   EMP.DEPTNO
+
+
+==================================================
+5. SAVE AND COMPILE
+==================================================
+
+1. Save the Form Module.
+
+2. Compile the form.
+
+3. Generate the FMX file.
+
+4. Make sure that the form compiles successfully.
+
+
+==================================================
+6. TEST THE LOV
+==================================================
+
+1. Run the form.
+
+2. Navigate to the DEPTNO field.
+
+3. Open the List of Values.
+
+4. The LOV displays department information such as:
+
+   DEPTNO     DNAME
+   ------     ----------
+   10         ACCOUNTING
+   20         RESEARCH
+   30         SALES
+   40         OPERATIONS
+
+5. Select a department from the LOV.
+
+6. Verify that the selected department number is returned
+   to the DEPTNO field.
+
+Example:
+
+   Selected:
+   30 - SALES
+
+   Returned Value:
+   EMP.DEPTNO = 30
+
+
+==================================================
+7. TEST CRUD OPERATION
+==================================================
+
+1. Enter a new employee record.
+
+2. Enter the employee information.
+
+3. Navigate to the DEPTNO field.
+
+4. Use the LOV to select a department.
+
+5. Save the record.
+
+6. Query the EMP table in the database.
+
+7. Verify that the new employee record and selected DEPTNO
+   were successfully saved.
+
+
+==================================================
+LOV FLOW
+==================================================
+
+DEPT Table
+    ↓
+SQL Query
+    ↓
+Record Group
+    ↓
+LOV
+    ↓
+Select Department
+    ↓
+Return DEPTNO
+    ↓
+EMP.DEPTNO
+
+
+==================================================
+IMPORTANT NOTES
+==================================================
+
+- LOV stands for List of Values.
+- The LOV is created based on a Record Group.
+- The Record Group is based on a SQL query.
+- The Record Group provides the data displayed in the LOV.
+- The LOV allows the user to select a valid department.
+- The selected DEPTNO is returned to EMP.DEPTNO.
+- The DEPT table provides the department information.
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created an LOV for the DEPTNO field using a
+Record Group.
+
+The Record Group retrieves DEPTNO and DNAME from the DEPT table.
+
+The LOV displays the available departments and returns the
+selected DEPTNO to EMP.DEPTNO.
+
+The form was tested successfully and the saved data was
+verified in the database.
+
+
+==================================================
+TASK COMPLETED
+==================================================

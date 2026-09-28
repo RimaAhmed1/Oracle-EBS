@@ -1,0 +1,359 @@
+DAY 11 - TRAINING NOTES
+Oracle EBS Technical Training
+
+==================================================
+1. LIST OF VALUES (LOV)
+==================================================
+
+LOV stands for List of Values.
+
+An LOV provides a list of valid values that the user can select
+from in an Oracle Form.
+
+In Oracle Forms, an LOV is based on a Record Group.
+
+Basic Flow:
+
+SQL Query
+    ↓
+Record Group
+    ↓
+LOV
+    ↓
+Return Value
+    ↓
+Form Item
+
+
+==================================================
+2. RECORD GROUP
+==================================================
+
+A Record Group is used to provide data to an LOV.
+
+A Record Group can be based on a SQL query.
+
+Example:
+
+SELECT DEPTNO, DNAME
+FROM DEPT
+ORDER BY DEPTNO;
+
+This query retrieves department information from the DEPT table.
+
+The Record Group can then be used as the source for an LOV.
+
+
+==================================================
+3. CREATE LOV FOR DEPTNO
+==================================================
+
+The practical task was to create an LOV for the DEPTNO item
+in an EMP form.
+
+The LOV was created using a Record Group.
+
+The Record Group retrieves:
+
+- DEPTNO
+- DNAME
+
+from the DEPT table.
+
+The selected department number is returned to:
+
+EMP.DEPTNO
+
+
+Example:
+
+LOV displays:
+
+DEPTNO     DNAME
+------     ----------
+10         ACCOUNTING
+20         RESEARCH
+30         SALES
+40         OPERATIONS
+
+If the user selects:
+
+30 - SALES
+
+The returned value is:
+
+EMP.DEPTNO = 30
+
+
+==================================================
+4. VALUE SET VS RECORD GROUP VS LOV
+==================================================
+
+Value Set:
+Used in Oracle EBS to define and validate acceptable values.
+
+Record Group:
+Used in Oracle Forms to retrieve and hold records that can
+be used by an LOV.
+
+LOV:
+Used in Oracle Forms to display a list of values to the user.
+
+Report Parameter:
+Used in Oracle Reports to pass a value to a report.
+
+Example:
+
+Oracle EBS
+→ Value Set
+
+Oracle Forms
+→ Record Group
+→ LOV
+
+Oracle Reports
+→ Parameter
+
+
+==================================================
+5. TESTING THE LOV
+==================================================
+
+After creating the LOV:
+
+1. Run the form.
+
+2. Navigate to the DEPTNO item.
+
+3. Open the LOV.
+
+4. Select a department.
+
+5. Verify that the selected DEPTNO is returned to EMP.DEPTNO.
+
+6. Create or update an employee record.
+
+7. Save the record.
+
+8. Query the EMP table in the database to verify that the
+   changes were saved successfully.
+
+
+==================================================
+6. FORM REGISTRATION FLOW
+==================================================
+
+After creating and compiling an Oracle Form, it can be
+registered in Oracle EBS.
+
+Basic registration flow:
+
+FMB
+ ↓
+Compile
+ ↓
+FMX
+ ↓
+Move FMX to EBS Server
+ ↓
+Register Form
+ ↓
+Create Function
+ ↓
+Attach Function to Menu
+ ↓
+Menu is associated with Responsibility
+ ↓
+Responsibility is assigned to User
+
+The registered form can then be accessed from Oracle EBS.
+
+
+==================================================
+7. FORM PERSONALIZATION VS FORM CUSTOMIZATION
+==================================================
+
+Form Personalization:
+
+Used to change the behavior or properties of an existing
+Oracle EBS form.
+
+Examples covered:
+
+- Change a field name
+- Make a field mandatory
+- Enable or disable a field
+
+
+Form Customization:
+
+Used when more extensive changes are required in an
+Oracle EBS form.
+
+Examples discussed:
+
+- Add or remove fields
+- Add or remove blocks
+- Create or modify form functionality
+
+
+==================================================
+8. ORACLE EBS FORM CUSTOMIZATION COMPONENTS
+==================================================
+
+The following components were introduced:
+
+APSTAND.fmb
+FNDMENU.mmb
+CUSTOM.pll
+
+
+APSTAND.fmb:
+
+Used as the standard template during the form customization
+practice.
+
+It provides predefined Oracle EBS objects and properties that
+help custom forms follow the Oracle EBS standard look and feel.
+
+
+FNDMENU.mmb:
+
+Menu module used with Oracle EBS forms.
+
+
+CUSTOM.pll:
+
+Library used for adding custom logic without directly modifying
+standard Oracle EBS form source code.
+
+
+==================================================
+9. WORKING WITH APSTAND.FMB
+==================================================
+
+The standard template should not be modified directly.
+
+General approach:
+
+1. Open the standard template in Oracle Forms Builder.
+
+2. Use Save As to create a separate custom form.
+
+3. Work on the custom copy instead of modifying the original
+   template.
+
+4. Create the required form objects such as:
+
+   - Window
+   - Canvas
+   - Data Block
+   - Items
+
+5. Save and compile the custom form.
+
+
+==================================================
+10. FORM OBJECT CREATION ORDER
+==================================================
+
+When creating the required form objects, the general order is:
+
+Window
+   ↓
+Canvas
+   ↓
+Data Block
+
+
+When removing existing objects during the training practice,
+the objects were removed in the reverse logical order:
+
+Data Block
+   ↓
+Canvas
+   ↓
+Window
+
+
+==================================================
+11. DATA BLOCK PRACTICE
+==================================================
+
+A Data Block can be created using the Data Block Wizard.
+
+During the customization practice, the EMP table was used
+to create a Data Block.
+
+General steps:
+
+1. Open Data Block Wizard.
+
+2. Select Table or View.
+
+3. Select the EMP table.
+
+4. Select the required columns.
+
+5. Complete the Data Block Wizard.
+
+6. Use the Layout Wizard.
+
+7. Select the required Window and Canvas.
+
+8. Select a suitable layout style.
+
+9. Complete the layout.
+
+
+==================================================
+12. IMPORTANT POINTS
+==================================================
+
+- LOV stands for List of Values.
+- An LOV in Oracle Forms is based on a Record Group.
+- A Record Group can be based on a SQL query.
+- The LOV can return a selected value to a Form Item.
+- DEPTNO and DNAME can be retrieved from the DEPT table.
+- The selected DEPTNO can be returned to EMP.DEPTNO.
+- Value Sets belong to the Oracle EBS validation mechanism.
+- LOV and Record Group are Oracle Forms components.
+- Parameters are used in reports and concurrent programs.
+- Oracle Forms can perform CRUD operations on database data.
+- Saved changes can be verified directly in the database.
+- Custom forms should follow Oracle EBS standards.
+- Do not modify the original standard template directly.
+- Save the template using a custom form name before making
+  customization changes.
+
+
+==================================================
+13. DAY 11 PRACTICAL TASK
+==================================================
+
+Task:
+
+Create LOV for DEPTNO.
+
+Process:
+
+DEPT Table
+    ↓
+SQL Query
+    ↓
+Record Group
+    ↓
+LOV
+    ↓
+EMP.DEPTNO
+
+The LOV was tested through the EMP form and the saved data
+was verified in the database.
+
+Form customization using the APSTAND.fmb template was also
+introduced and continued in the following training work.
+
+
+==================================================
+DAY 11 COMPLETED
+==================================================

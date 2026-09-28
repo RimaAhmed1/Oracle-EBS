@@ -1,0 +1,566 @@
+DAY 12 - TRAINING NOTES
+Oracle EBS Technical Training
+
+==================================================
+1. AOL - APPLICATION OBJECT LIBRARY
+==================================================
+
+AOL stands for:
+
+Application Object Library
+
+FND is a short name used for AOL.
+
+Important AOL concepts covered:
+
+Concurrent
+- Program
+- Executable
+
+Application
+- Form
+- Function
+- Menu
+
+Validation
+- Set
+- Values
+
+Lookups
+
+
+==================================================
+2. LOOKUPS
+==================================================
+
+Lookups are used in Oracle EBS to maintain reusable
+application values.
+
+A Lookup can contain:
+
+- Lookup Type
+- Code
+- Meaning
+- Description
+
+Example:
+
+During EBS implementation, an organization initially
+creates three departments:
+
+- FIN
+- HR
+- SALES
+
+Later, two more departments are required:
+
+- MARKETING
+- PRODUCTION
+
+The two new departments should be added to the existing
+Department Lookup.
+
+There is no need to create a new Lookup.
+
+
+==================================================
+3. DEPARTMENT LOOKUP EXAMPLE
+==================================================
+
+Initial Department Lookup:
+
+FIN
+HR
+SALES
+
+New Departments:
+
+MARKETING
+PRODUCTION
+
+Final Department Lookup:
+
+FIN
+HR
+SALES
+MARKETING
+PRODUCTION
+
+This demonstrates how Lookup values can be maintained
+and extended when business requirements change.
+
+
+==================================================
+4. VALUE SET REVISION
+==================================================
+
+Value Sets were also practiced during Day 12.
+
+Two types were used:
+
+- Independent Value Set
+- Dependent Value Set
+
+
+==================================================
+5. INDEPENDENT VALUE SET
+==================================================
+
+Example:
+
+Value Set Name:
+
+ANIL_VS_INDPN
+
+Data Type:
+
+CHAR
+
+Size:
+
+20
+
+Validation Type:
+
+Independent
+
+Values:
+
+- OMAN
+- INDIA
+- USA
+
+An Independent Value Set contains predefined values that
+do not depend on another Value Set.
+
+
+==================================================
+6. DEPENDENT VALUE SET
+==================================================
+
+Example:
+
+Value Set Name:
+
+ANIL_VS_DEPN
+
+Data Type:
+
+CHAR
+
+Size:
+
+20
+
+Validation Type:
+
+Dependent
+
+Based On Independent Value Set:
+
+ANIL_VS_INDPN
+
+Dependent Values:
+
+OMAN
+→ MUSCAT
+
+INDIA
+→ DELHI
+
+USA
+→ NEW YORK
+
+A Dependent Value Set displays values based on the selected
+value from an Independent Value Set.
+
+
+==================================================
+7. INDEPENDENT AND DEPENDENT FLOW
+==================================================
+
+ANIL_VS_INDPN
+      ↓
+Independent Values
+      ↓
+OMAN      INDIA      USA
+ ↓          ↓         ↓
+MUSCAT    DELHI    NEW YORK
+      ↓
+ANIL_VS_DEPN
+
+
+==================================================
+8. FND BACKEND TABLES
+==================================================
+
+Oracle EBS contains many FND tables.
+
+The following query pattern was discussed:
+
+FND_%
+
+Example:
+
+SELECT COUNT(*)
+FROM TAB
+WHERE TNAME LIKE 'FND_%';
+
+The training environment returned approximately:
+
+1597 tables
+
+Examples of FND tables discussed:
+
+FND_LOOKUP_TYPES
+
+FND_PROFILE
+
+FND_USER
+
+FND_CONCURRENT_PROGRAMS
+
+FND_CONCURRENT_REQUESTS
+
+
+==================================================
+9. QUERY LOOKUP TYPE FROM BACKEND
+==================================================
+
+A Lookup Type can be checked from the database.
+
+Example:
+
+SELECT LOOKUP_TYPE
+FROM FND_LOOKUP_TYPES
+WHERE LOOKUP_TYPE LIKE 'ANIL%';
+
+Example result:
+
+ANIL_LOOKUP_DEPT
+
+Another name discussed:
+
+ANIL_LOOKUP_DEPARTMENT
+
+
+==================================================
+10. DESCRIBE FND TABLES
+==================================================
+
+DESC can be used to examine the structure of a database table.
+
+Examples:
+
+DESC FND_PROFILE;
+
+DESC FND_USER;
+
+DESC FND_CONCURRENT_PROGRAMS;
+
+DESC FND_CONCURRENT_REQUESTS;
+
+This helps identify the columns available in Oracle EBS
+backend tables.
+
+
+==================================================
+11. TABLE RENAME EXAMPLE
+==================================================
+
+The EMP table was used to discuss renaming a database table.
+
+Example concept:
+
+EMP
+ ↓
+EMPLOY
+
+A table can be renamed from its current name to a new name.
+
+
+==================================================
+12. AD_DD PACKAGE
+==================================================
+
+AD_DD was introduced as the package used when registering
+custom database objects with Oracle EBS.
+
+The training discussed registering:
+
+- Table
+- Columns
+
+Example concept:
+
+AD_DD.REGISTER_TABLE
+
+AD_DD.REGISTER_COLUMN
+
+The purpose is to register custom table information with
+Oracle EBS.
+
+The exact syntax used in the training should be followed
+when performing the registration.
+
+
+==================================================
+13. DAY 12 PRACTICAL TASK
+==================================================
+
+The main practical task for Day 12 was:
+
+1. Create a Master-Detail Form using:
+
+   DEPT
+   EMP
+
+2. Design the Form using:
+
+   APSTAND.fmb
+
+3. Register the Form in Oracle EBS.
+
+4. Add a Menu to the Form Module using:
+
+   FNDMENU.mmb
+
+5. Compile the menu module to:
+
+   FNDMENU.mmx
+
+
+==================================================
+14. MASTER-DETAIL FORM
+==================================================
+
+Master Table:
+
+DEPT
+
+Detail Table:
+
+EMP
+
+Relationship:
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+Structure:
+
+DEPT
+  ↓
+EMP
+
+DEPT is the Master block.
+
+EMP is the Detail block.
+
+When a department is selected, the EMP Detail block displays
+the employees related to that department.
+
+
+==================================================
+15. APSTAND.FMB
+==================================================
+
+The Master-Detail Form was designed using:
+
+APSTAND.fmb
+
+The template was used to create the custom Oracle EBS Form.
+
+The custom Form Module used in the training example was:
+
+ANIL_MASTER_DETAIL_FORM
+
+The form contains:
+
+- Window
+- Canvas
+- DEPT Data Block
+- EMP Data Block
+- Master-Detail Relationship
+
+
+==================================================
+16. FIRST NAVIGATION DATA BLOCK
+==================================================
+
+The First Navigation Data Block should be set to the
+Master block:
+
+DEPT
+
+This makes the DEPT block the first data block accessed
+when the form opens.
+
+
+==================================================
+17. FNDMENU
+==================================================
+
+The menu module used with the Form was:
+
+FNDMENU.mmb
+
+The compiled menu module is:
+
+FNDMENU.mmx
+
+The FNDMENU resource location used in the training environment:
+
+/u01/install/VISION/fs1/EBSapps/appl/au/12.0.0/resource/US
+
+The compiled FNDMENU.mmx location used in the training:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US
+
+
+==================================================
+18. ATTACH MENU MODULE
+==================================================
+
+Open the Form Module:
+
+ANIL_MASTER_DETAIL_FORM
+
+In the Form Module properties, set the Menu Module to:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US/FNDMENU.mmx
+
+Save the Form Module after attaching the menu.
+
+
+==================================================
+19. COMPILE AND DEPLOY
+==================================================
+
+After completing the Form:
+
+1. Save the Form Module.
+
+2. Compile the Form.
+
+3. Generate the compiled Form Module.
+
+Flow:
+
+FMB
+ ↓
+Compile
+ ↓
+FMX
+
+4. Move the compiled Form Module to the EBS server.
+
+5. Move FNDMENU.mmx to:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US
+
+
+==================================================
+20. REGISTER FORM IN ORACLE EBS
+==================================================
+
+The custom form must be registered in Oracle EBS.
+
+Registration flow:
+
+Form
+ ↓
+Function
+ ↓
+Menu
+ ↓
+Responsibility
+ ↓
+User
+
+After registration, switch to the required Responsibility
+and open the custom form.
+
+
+==================================================
+21. RUNTIME VERIFICATION
+==================================================
+
+At runtime, verify:
+
+- The custom Form opens successfully.
+- The DEPT Master block is displayed.
+- The EMP Detail block is displayed.
+- The Master-Detail relationship works.
+- Employees are displayed according to the selected department.
+- The FNDMENU menu module is attached and visible.
+
+
+==================================================
+22. IMPORTANT DAY 12 POINTS
+==================================================
+
+- AOL stands for Application Object Library.
+- FND is a short name used for AOL.
+- AOL concepts include Concurrent Programs, Executables,
+  Forms, Functions, Menus, Validation, and Lookups.
+- Lookups maintain reusable application values.
+- New values can be added to an existing Lookup.
+- Independent Value Sets contain predefined independent values.
+- Dependent Value Sets depend on an Independent Value Set.
+- Oracle EBS contains many FND backend tables.
+- FND_LOOKUP_TYPES stores information related to Lookup Types.
+- DESC can be used to inspect a table structure.
+- AD_DD was introduced for registering custom database
+  objects with Oracle EBS.
+- DEPT was used as the Master table.
+- EMP was used as the Detail table.
+- The Master-Detail relationship uses DEPTNO.
+- APSTAND.fmb was used as the Form template in the training.
+- FNDMENU.mmb is the menu source module.
+- FNDMENU.mmx is the compiled menu module.
+- The Form must be saved and compiled before deployment.
+- The compiled Form Module must be moved to the EBS server.
+- The Form must be registered and accessed through the
+  appropriate Responsibility.
+
+
+==================================================
+23. DAY 12 PRACTICAL FLOW
+==================================================
+
+DEPT + EMP
+    ↓
+Create Master-Detail Form
+    ↓
+Design on APSTAND.fmb
+    ↓
+DEPT Master
+    ↓
+EMP Detail
+    ↓
+Attach FNDMENU
+    ↓
+Save
+    ↓
+Compile
+    ↓
+Generate FMX
+    ↓
+Move to EBS Server
+    ↓
+Register Form
+    ↓
+Function
+    ↓
+Menu
+    ↓
+Responsibility
+    ↓
+Run Form
+    ↓
+Verify Master-Detail + Menu
+
+
+==================================================
+DAY 12 COMPLETED
+==================================================

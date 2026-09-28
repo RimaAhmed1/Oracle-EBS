@@ -1,0 +1,377 @@
+Task: Create Master-Detail Form Using APSTAND Template
+
+Objective:
+Create a Master-Detail Form using the DEPT and EMP tables,
+design the form using the APSTAND.fmb template, register the
+form in Oracle EBS, and attach the FNDMENU menu module.
+
+==================================================
+1. CREATE MASTER-DETAIL FORM
+==================================================
+
+Create a Master-Detail Form using:
+
+Master Table:
+DEPT
+
+Detail Table:
+EMP
+
+Relationship:
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+The DEPT block represents the Master block.
+
+The EMP block represents the Detail block.
+
+
+==================================================
+2. OPEN APSTAND.FMB TEMPLATE
+==================================================
+
+1. Open Oracle Forms Builder.
+
+2. Open the APSTAND.fmb template.
+
+3. Use the template to design the custom Master-Detail Form.
+
+4. Save the form using a custom form module name.
+
+Example:
+
+ANIL_MASTER_DETAIL_FORM
+
+
+==================================================
+3. CREATE DEPT MASTER BLOCK
+==================================================
+
+1. Create a Data Block using the Data Block Wizard.
+
+2. Select the DEPT table.
+
+3. Select the required columns.
+
+Example:
+
+DEPTNO
+DNAME
+LOC
+
+4. Complete the Data Block Wizard.
+
+5. Create the layout using the Layout Wizard.
+
+
+==================================================
+4. CREATE EMP DETAIL BLOCK
+==================================================
+
+1. Create another Data Block using the Data Block Wizard.
+
+2. Select the EMP table.
+
+3. Select the required EMP columns.
+
+Example:
+
+EMPNO
+ENAME
+JOB
+MGR
+HIREDATE
+SAL
+COMM
+DEPTNO
+
+4. Set EMP as the Detail block.
+
+5. Create the relationship between DEPT and EMP.
+
+Relationship:
+
+DEPT.DEPTNO = EMP.DEPTNO
+
+
+==================================================
+5. MASTER-DETAIL RELATIONSHIP
+==================================================
+
+The relationship between the two blocks is:
+
+DEPT
+  ↓
+EMP
+
+Master:
+DEPT
+
+Detail:
+EMP
+
+Join Condition:
+
+EMP.DEPTNO = DEPT.DEPTNO
+
+This allows the EMP block to display employees belonging
+to the currently selected department.
+
+
+==================================================
+6. DESIGN THE FORM ON APSTAND.FMB
+==================================================
+
+Design the Master-Detail Form using the APSTAND.fmb template.
+
+The form should contain:
+
+- Window
+- Canvas
+- DEPT Master Block
+- EMP Detail Block
+- Master-Detail Relationship
+
+Set the required form properties.
+
+Set the First Navigation Data Block to:
+
+DEPT
+
+
+==================================================
+7. ADD MENU TO THE FORM MODULE
+==================================================
+
+Use the Oracle EBS menu module:
+
+FNDMENU.mmb
+
+Compile the menu module to generate:
+
+FNDMENU.mmx
+
+The FNDMENU resource is located in:
+
+/u01/install/VISION/fs1/EBSapps/appl/au/12.0.0/resource/US
+
+
+==================================================
+8. ATTACH FNDMENU.MMX TO THE FORM
+==================================================
+
+Open the Form Module:
+
+ANIL_MASTER_DETAIL_FORM
+
+Open the Form Module Property Palette.
+
+Set:
+
+Menu Module:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US/FNDMENU.mmx
+
+Save the Form Module.
+
+
+==================================================
+9. SAVE AND COMPILE THE FORM
+==================================================
+
+1. Save the Form Module.
+
+2. Compile the Form Module.
+
+3. Generate the compiled form module.
+
+FMB
+ ↓
+Compile
+ ↓
+FMX
+
+Make sure the form compiles successfully.
+
+
+==================================================
+10. MOVE THE COMPILED FORM TO EBS SERVER
+==================================================
+
+Move the compiled Form Module (FMX) to the Oracle EBS server.
+
+The compiled form must be available on the EBS server
+before running it through Oracle EBS.
+
+
+==================================================
+11. MOVE FNDMENU.MMX TO EBS SERVER
+==================================================
+
+Move:
+
+FNDMENU.mmx
+
+to the EBS forms location:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US
+
+
+==================================================
+12. REGISTER THE FORM IN ORACLE EBS
+==================================================
+
+Register the custom form in Oracle EBS.
+
+General registration flow:
+
+Form
+ ↓
+Function
+ ↓
+Menu
+ ↓
+Responsibility
+ ↓
+User
+
+Register the Form and create the required Function.
+
+Attach the Function to the appropriate Menu.
+
+Make sure the Menu is available through the required
+Responsibility.
+
+
+==================================================
+13. SWITCH TO RESPONSIBILITY
+==================================================
+
+1. Switch to the Responsibility where the form was registered.
+
+2. Locate the registered custom form.
+
+3. Open the form.
+
+
+==================================================
+14. RUN THE MASTER-DETAIL FORM
+==================================================
+
+Open the form at runtime.
+
+Verify that:
+
+- The DEPT Master block is displayed.
+- The EMP Detail block is displayed.
+- Selecting a department displays its related employees.
+- The Master-Detail relationship works correctly.
+- The menu module is attached to the form.
+
+
+==================================================
+15. VERIFY MENU MODULE
+==================================================
+
+At runtime, verify that the menu module is available.
+
+Menu Module:
+
+FNDMENU.mmx
+
+This confirms that the Oracle EBS menu module was
+successfully attached to the custom form.
+
+
+==================================================
+MASTER-DETAIL FLOW
+==================================================
+
+APSTAND.fmb
+     ↓
+Custom Form Module
+     ↓
+DEPT Master Block
+     ↓
+DEPT.DEPTNO = EMP.DEPTNO
+     ↓
+EMP Detail Block
+     ↓
+FNDMENU.mmb
+     ↓
+FNDMENU.mmx
+     ↓
+Compile Form
+     ↓
+FMX
+     ↓
+Move to EBS Server
+     ↓
+Register Form
+     ↓
+Function
+     ↓
+Menu
+     ↓
+Responsibility
+     ↓
+Run Form in Oracle EBS
+
+
+==================================================
+IMPORTANT FILES
+==================================================
+
+Template:
+
+APSTAND.fmb
+
+Menu Source:
+
+FNDMENU.mmb
+
+Compiled Menu:
+
+FNDMENU.mmx
+
+FNDMENU Resource Location:
+
+/u01/install/VISION/fs1/EBSapps/appl/au/12.0.0/resource/US
+
+FNDMENU Compiled Forms Location:
+
+/u01/install/VISION/fs1/EBSapps/appl/fnd/12.0.0/forms/US
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created a Master-Detail Form using the
+DEPT and EMP tables.
+
+The form was designed using the APSTAND.fmb template.
+
+Master Block:
+DEPT
+
+Detail Block:
+EMP
+
+Relationship:
+DEPT.DEPTNO = EMP.DEPTNO
+
+The FNDMENU menu module was attached to the Form Module.
+
+The form was compiled and moved to the Oracle EBS server.
+
+The form was registered in Oracle EBS and accessed through
+the assigned Responsibility.
+
+The Master-Detail relationship and attached menu module
+were verified successfully at runtime.
+
+
+==================================================
+TASK COMPLETED
+==================================================

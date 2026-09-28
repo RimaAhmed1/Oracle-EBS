@@ -1,0 +1,218 @@
+Task: Create LOOKUP for DEPARTMENT
+
+Objective:
+Create a Department Lookup in Oracle EBS and demonstrate
+how new department values can be added to an existing Lookup.
+
+==================================================
+1. AOL - APPLICATION OBJECT LIBRARY
+==================================================
+
+FND is a short name used for AOL (Application Object Library).
+
+AOL includes:
+
+Concurrent
+- Program
+- Executable
+
+Application
+- Form
+- Function
+- Menu
+
+Validation
+- Set
+- Values
+
+Lookups
+
+
+==================================================
+2. CREATE DEPARTMENT LOOKUP
+==================================================
+
+Navigation:
+
+Application Developer
+→ Application
+→ Lookups
+
+Create a Lookup for Departments.
+
+Create the following initial department values:
+
+- FIN
+- HR
+- SALES
+
+Save the Lookup.
+
+
+==================================================
+3. ADD NEW DEPARTMENTS TO THE EXISTING LOOKUP
+==================================================
+
+Later, two additional departments are required:
+
+- MARKETING
+- PRODUCTION
+
+Do not create a new Lookup.
+
+Open the existing Department Lookup and add the two new
+department values.
+
+The final Department Lookup contains:
+
+- FIN
+- HR
+- SALES
+- MARKETING
+- PRODUCTION
+
+Save the changes.
+
+
+==================================================
+4. LOOKUP CONCEPT
+==================================================
+
+A Lookup provides a reusable list of values in Oracle EBS.
+
+Instead of creating a new Lookup when a new department is
+introduced, the new value can be added to the existing Lookup.
+
+Example:
+
+Existing Department Lookup:
+
+FIN
+HR
+SALES
+
+New Departments:
+
+MARKETING
+PRODUCTION
+
+Final Lookup:
+
+FIN
+HR
+SALES
+MARKETING
+PRODUCTION
+
+
+==================================================
+5. LOOKUP STRUCTURE
+==================================================
+
+A Lookup contains information such as:
+
+- Lookup Type
+- Code
+- Meaning
+- Description
+
+The Lookup Type identifies the group of related values.
+
+Each department can be maintained as a Lookup value.
+
+
+==================================================
+6. VERIFY LOOKUP FROM DATABASE
+==================================================
+
+The Lookup can also be checked from the Oracle EBS backend.
+
+Example query:
+
+SELECT LOOKUP_TYPE
+FROM FND_LOOKUP_TYPES
+WHERE LOOKUP_TYPE LIKE 'ANIL%';
+
+Example result:
+
+ANIL_LOOKUP_DEPT
+
+The Lookup Type can also be named:
+
+ANIL_LOOKUP_DEPARTMENT
+
+
+==================================================
+7. IMPORTANT POINTS
+==================================================
+
+- Lookups are part of AOL concepts.
+- FND is associated with Application Object Library.
+- A Lookup maintains reusable application values.
+- New values can be added to an existing Lookup.
+- It is not necessary to create a new Lookup every time
+  a new department is added.
+- Lookup Type identifies a group of related Lookup values.
+- Lookup values can contain Code, Meaning, and Description.
+- FND_LOOKUP_TYPES can be used to check Lookup Types
+  from the database.
+
+
+==================================================
+8. PRACTICAL EXAMPLE
+==================================================
+
+Initial Departments:
+
+FIN
+HR
+SALES
+
+        ↓
+
+Existing Department Lookup
+
+        ↓
+
+Add New Departments:
+
+MARKETING
+PRODUCTION
+
+        ↓
+
+Final Department Lookup:
+
+FIN
+HR
+SALES
+MARKETING
+PRODUCTION
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created and maintained a Department Lookup
+in Oracle EBS.
+
+The initial departments were:
+
+- FIN
+- HR
+- SALES
+
+Two additional departments were added to the same
+existing Lookup:
+
+- MARKETING
+- PRODUCTION
+
+The Lookup was successfully updated without creating
+a separate Lookup.
+
+
+==================================================
+TASK COMPLETED
+==================================================

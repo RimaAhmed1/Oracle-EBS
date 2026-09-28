@@ -1,0 +1,366 @@
+Task: Create Master-Detail Report as RTF Using BI Publisher
+
+Objective:
+Create an Oracle Master-Detail Report using the DEPT and EMP
+tables, generate XML output, and design an RTF template using
+BI Publisher Desktop in Microsoft Word.
+
+==================================================
+1. CREATE MASTER-DETAIL REPORT
+==================================================
+
+Open Oracle Reports Builder and create a new report.
+
+Use the following query:
+
+SELECT EMP.EMPNO,
+       EMP.ENAME,
+       EMP.JOB,
+       EMP.MGR,
+       EMP.HIREDATE,
+       EMP.SAL,
+       EMP.COMM,
+       EMP.DEPTNO,
+       DEPT.DNAME,
+       DEPT.LOC
+FROM EMP, DEPT
+WHERE EMP.DEPTNO = DEPT.DEPTNO;
+
+
+==================================================
+2. SELECT REPORT STYLE
+==================================================
+
+Select a Master-Detail suitable report style:
+
+Group Above
+
+The report groups employee records according to their
+department.
+
+Master:
+Department
+
+Detail:
+Employees
+
+
+==================================================
+3. CREATE GROUPING
+==================================================
+
+Use DEPTNO as the department grouping field.
+
+Structure:
+
+DEPTNO
+   ↓
+Employee Records
+
+Each department can contain multiple employees.
+
+
+==================================================
+4. ADD SUMMARY COLUMNS
+==================================================
+
+Create summary information for the report.
+
+Examples:
+
+SUM(SAL)
+
+COUNT(ENAME)
+
+These summaries can be used to display:
+
+- Total salary for the department
+- Number of employees in the department
+
+
+==================================================
+5. SAVE THE ORACLE REPORT
+==================================================
+
+Save the Oracle Report as:
+
+RIMA_DEPT_EMP_MASTER_REPORT.rdf
+
+
+==================================================
+6. REGISTER THE EXECUTABLE
+==================================================
+
+Register the report executable in Oracle EBS.
+
+Example:
+
+Executable:
+RIMA_DEPT_EMP_MASTER_REPORT
+
+Application:
+Application Object Library
+
+Execution Method:
+Oracle Reports
+
+Execution File Name:
+RIMA_DEPT_EMP_MASTER_REPORT
+
+
+==================================================
+7. REGISTER THE CONCURRENT PROGRAM
+==================================================
+
+Create a Concurrent Program for the report.
+
+Concurrent Program:
+RIMA_DEPT_EMP_MASTER_REPORT
+
+Set the Output Format to:
+
+XML
+
+The XML output will later be used as sample data in
+BI Publisher Desktop.
+
+
+==================================================
+8. ADD TO REQUEST GROUP
+==================================================
+
+Add the Concurrent Program to the appropriate Request Group.
+
+This allows the report to be submitted from the required
+Responsibility.
+
+
+==================================================
+9. SUBMIT THE REPORT
+==================================================
+
+Switch to the required Responsibility.
+
+Navigate to:
+
+View
+→ Requests
+→ Submit a New Request
+
+Select:
+
+RIMA_DEPT_EMP_MASTER_REPORT
+
+Submit the request.
+
+Wait until the request completes successfully.
+
+
+==================================================
+10. GET XML OUTPUT
+==================================================
+
+Open the completed request output.
+
+The Concurrent Program must generate XML output.
+
+Save the XML file locally.
+
+The XML contains the data that will be used to design
+the BI Publisher template.
+
+
+==================================================
+11. OPEN BI PUBLISHER DESKTOP
+==================================================
+
+Open Microsoft Word.
+
+Make sure BI Publisher Desktop is installed.
+
+Open the:
+
+BI Publisher
+
+ribbon in Microsoft Word.
+
+
+==================================================
+12. LOAD SAMPLE XML
+==================================================
+
+From the BI Publisher ribbon:
+
+Load the XML output generated from the Concurrent Program.
+
+The XML becomes the sample data source for the RTF template.
+
+
+==================================================
+13. CREATE TABLE USING TABLE WIZARD
+==================================================
+
+Open:
+
+BI Publisher
+→ Insert
+→ Table Wizard
+
+Select the required employee fields.
+
+Example fields:
+
+- EMPNO
+- ENAME
+- JOB
+- MGR
+- HIREDATE
+- SAL
+- COMM
+- DNAME
+- LOC
+
+
+==================================================
+14. CREATE MASTER-DETAIL GROUPING
+==================================================
+
+Configure the Table Wizard to group employee records
+by department.
+
+In the practical report, DNAME was selected as:
+
+Group Above
+
+Example:
+
+ACCOUNTING
+    ↓
+Employee 1
+Employee 2
+Employee 3
+
+SALES
+    ↓
+Employee 1
+Employee 2
+
+
+==================================================
+15. SORT EMPLOYEE DATA
+==================================================
+
+Configure employee sorting.
+
+Sort By:
+
+EMPNO
+
+Order:
+
+Ascending
+
+
+==================================================
+16. COMPLETE TABLE WIZARD
+==================================================
+
+Complete the Table Wizard.
+
+Verify that the report layout contains:
+
+Department Group
+      ↓
+Employee Details
+
+
+==================================================
+17. SAVE AS RTF
+==================================================
+
+Save the Microsoft Word template as:
+
+Rich Text Format (.rtf)
+
+The RTF file acts as the BI Publisher report template.
+
+
+==================================================
+18. PREVIEW REPORT
+==================================================
+
+Use BI Publisher Preview.
+
+Preview the report using formats such as:
+
+- PDF
+- HTML
+
+Verify that the departments and their related employees
+are displayed correctly.
+
+
+==================================================
+MASTER-DETAIL REPORT FLOW
+==================================================
+
+DEPT + EMP
+    ↓
+Oracle Reports Builder
+    ↓
+Master-Detail Report
+    ↓
+Group Above
+    ↓
+RIMA_DEPT_EMP_MASTER_REPORT.rdf
+    ↓
+Register Executable
+    ↓
+Register Concurrent Program
+    ↓
+Output Format: XML
+    ↓
+Submit Request
+    ↓
+XML Output
+    ↓
+Microsoft Word
+    ↓
+BI Publisher Desktop
+    ↓
+Load Sample XML
+    ↓
+Table Wizard
+    ↓
+Group Above by Department
+    ↓
+Save as RTF
+    ↓
+Preview PDF / HTML
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created an RTF report based on the
+Master-Detail Report.
+
+The Oracle Report retrieves employee and department
+information from the EMP and DEPT tables.
+
+The report was registered as a Concurrent Program with
+XML output.
+
+The generated XML was loaded into BI Publisher Desktop.
+
+An RTF template was created using the Table Wizard with
+department grouping and employee details.
+
+The final report was successfully previewed using
+BI Publisher.
+
+
+==================================================
+TASK COMPLETED
+==================================================

@@ -1,0 +1,376 @@
+Task: Create Parameterized Report as RTF Using BI Publisher
+
+Objective:
+Create a Parameterized Oracle Report using DEPTNO as a
+parameter, generate XML output, and create an RTF template
+using BI Publisher Desktop.
+
+==================================================
+1. CREATE PARAMETERIZED REPORT
+==================================================
+
+Open Oracle Reports Builder.
+
+Create a new report using the EMP table.
+
+
+==================================================
+2. CREATE THE QUERY
+==================================================
+
+Use the following query:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is a Bind Parameter.
+
+The parameter allows the user to retrieve employees
+belonging to a selected department.
+
+
+==================================================
+3. PARAMETER CONCEPT
+==================================================
+
+Bind Parameter:
+
+:DNO
+
+Example:
+
+If:
+
+DNO = 30
+
+The report retrieves only employees where:
+
+DEPTNO = 30
+
+
+==================================================
+4. DESIGN THE REPORT
+==================================================
+
+Select the required report style.
+
+Create the report layout using the employee fields.
+
+Example fields:
+
+- EMPNO
+- ENAME
+- JOB
+- MGR
+- HIREDATE
+- SAL
+- COMM
+- DEPTNO
+
+
+==================================================
+5. SAVE THE REPORT
+==================================================
+
+Save the Oracle Report as an RDF file.
+
+Compile and verify that the report runs successfully.
+
+
+==================================================
+6. REGISTER THE REPORT IN ORACLE EBS
+==================================================
+
+Register the report as an Executable.
+
+Execution Method:
+
+Oracle Reports
+
+Then create the corresponding Concurrent Program.
+
+
+==================================================
+7. CREATE CONCURRENT PROGRAM PARAMETER
+==================================================
+
+Create a parameter for the Concurrent Program.
+
+Parameter:
+
+DNO
+
+Token:
+
+DNO
+
+The parameter is used to pass the selected department
+number to the Oracle Report Bind Parameter:
+
+:DNO
+
+
+==================================================
+8. ATTACH VALUE SET
+==================================================
+
+Attach the appropriate Value Set to the DNO parameter.
+
+The Value Set controls the valid department values that
+can be selected when submitting the report.
+
+
+==================================================
+9. SET OUTPUT FORMAT
+==================================================
+
+Set the Concurrent Program Output Format to:
+
+XML
+
+The XML output will be used as sample data for
+BI Publisher Desktop.
+
+
+==================================================
+10. ADD TO REQUEST GROUP
+==================================================
+
+Add the Concurrent Program to the appropriate Request Group.
+
+This makes the report available through the required
+Responsibility.
+
+
+==================================================
+11. SUBMIT THE PARAMETERIZED REPORT
+==================================================
+
+Switch to the required Responsibility.
+
+Navigate to:
+
+View
+→ Requests
+→ Submit a New Request
+
+Select the Parameterized Report.
+
+Enter a department value.
+
+Example:
+
+DNO = 30
+
+Submit the request.
+
+
+==================================================
+12. VERIFY PARAMETER FILTERING
+==================================================
+
+Wait until the request completes.
+
+Verify that the report contains only employees belonging
+to the selected department.
+
+Example:
+
+DNO = 30
+
+Result:
+
+Only employees with:
+
+DEPTNO = 30
+
+
+==================================================
+13. GET XML OUTPUT
+==================================================
+
+Open the request output.
+
+Save the generated XML file locally.
+
+This XML file will be used as sample data for the
+BI Publisher RTF template.
+
+
+==================================================
+14. OPEN BI PUBLISHER DESKTOP
+==================================================
+
+Open Microsoft Word.
+
+Open the:
+
+BI Publisher
+
+ribbon.
+
+
+==================================================
+15. LOAD SAMPLE XML
+==================================================
+
+Load the XML file generated from the Parameterized Report.
+
+The XML provides the employee data returned for the
+selected department.
+
+
+==================================================
+16. CREATE THE REPORT TEMPLATE
+==================================================
+
+Use:
+
+BI Publisher
+→ Insert
+→ Table Wizard
+
+Select the required employee fields.
+
+Example:
+
+EMPNO
+ENAME
+JOB
+MGR
+HIREDATE
+SAL
+COMM
+DEPTNO
+
+
+==================================================
+17. DESIGN THE TABLE
+==================================================
+
+Configure the report table.
+
+The report displays employee records returned according
+to the selected DEPTNO parameter.
+
+Example:
+
+DNO = 30
+
+        ↓
+
+Parameterized Report
+
+        ↓
+
+Employees from Department 30
+
+
+==================================================
+18. SAVE AS RTF
+==================================================
+
+Save the Word template as:
+
+Rich Text Format (.rtf)
+
+
+==================================================
+19. PREVIEW THE REPORT
+==================================================
+
+Use BI Publisher Preview.
+
+Preview the RTF template in:
+
+- PDF
+- HTML
+
+Verify that the report displays the parameterized
+employee data correctly.
+
+
+==================================================
+PARAMETERIZED REPORT FLOW
+==================================================
+
+EMP
+ ↓
+Oracle Reports Query
+ ↓
+SELECT * FROM EMP WHERE DEPTNO = :DNO
+ ↓
+:DNO Bind Parameter
+ ↓
+Register Report
+ ↓
+Concurrent Program
+ ↓
+DNO Parameter
+ ↓
+Value Set
+ ↓
+Token: DNO
+ ↓
+Submit Request
+ ↓
+Select DEPTNO
+ ↓
+XML Output
+ ↓
+BI Publisher Desktop
+ ↓
+Load Sample XML
+ ↓
+Table Wizard
+ ↓
+Save as RTF
+ ↓
+Preview PDF / HTML
+
+
+==================================================
+IMPORTANT POINTS
+==================================================
+
+- :DNO is a Bind Parameter.
+- DNO filters employee data based on DEPTNO.
+- The Concurrent Program parameter passes the selected
+  value to the report.
+- Token DNO connects the Concurrent Program parameter
+  with the report parameter.
+- The Concurrent Program output must be XML for the
+  BI Publisher practical.
+- The XML output is loaded as sample data in Microsoft Word.
+- BI Publisher Desktop is used to design the RTF template.
+- The final template is saved as .rtf.
+- The report can be previewed in PDF or HTML.
+
+
+==================================================
+RESULT
+==================================================
+
+Successfully created an RTF template based on a
+Parameterized Report.
+
+The report uses:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+The DNO parameter filters employee records according
+to the selected department.
+
+The report generated XML output, which was loaded into
+BI Publisher Desktop.
+
+The final report template was saved as RTF and
+previewed successfully.
+
+
+==================================================
+TASK COMPLETED
+==================================================

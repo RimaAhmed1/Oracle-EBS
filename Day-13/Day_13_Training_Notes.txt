@@ -1,0 +1,493 @@
+DAY 13 - TRAINING NOTES
+Oracle EBS Technical Training
+
+Topic:
+BIP - Business Intelligence Publisher / XML Publisher Reports
+
+
+==================================================
+1. ORACLE REPORTS VS BI PUBLISHER
+==================================================
+
+Oracle Reports:
+
+- Accesses data from Oracle Database.
+- Used as a reporting tool for Oracle data.
+
+
+BI Publisher:
+
+- Can access data from multiple data sources.
+- Can work with different ERPs and databases.
+- Can generate output in multiple formats.
+- Can deliver reports to multiple destinations.
+- Runs through the BI Publisher Server.
+- Can be accessed using a URL.
+- Can create reports using Subject Areas.
+- Supports desktop tools for report design.
+
+Examples of Desktop Tools:
+
+- Microsoft Word
+- Microsoft Excel
+- Adobe
+
+
+==================================================
+2. BI PUBLISHER
+==================================================
+
+BI Publisher is used for delivering high-fidelity,
+pixel-perfect reports in multiple formats.
+
+It separates:
+
+Data
+    ↓
+Template
+    ↓
+Output
+    ↓
+Destination
+
+
+==================================================
+3. FUNCTIONS OF REPORTING SYSTEMS
+==================================================
+
+The three main functions discussed were:
+
+1. Authoring
+
+   Creating reports.
+
+
+2. Managing
+
+   Includes:
+
+   - Security
+   - Translation
+   - Customization
+
+
+3. Delivering
+
+   Publishing reports through:
+
+   - Print
+   - Email
+   - Web Page
+
+
+==================================================
+4. BURSTING
+==================================================
+
+Bursting is a process of generating multiple documents
+from a batch report and delivering the documents to
+multiple destinations.
+
+Concept:
+
+Batch Report
+    ↓
+Generate Documents
+    ↓
+Multiple Outputs
+    ↓
+Multiple Destinations
+
+
+==================================================
+5. BI PUBLISHER SERVER
+==================================================
+
+BI Publisher can be accessed through the BI Publisher Server.
+
+General access pattern:
+
+http://<Company URL>:7001/xmlpserver
+
+The BI Publisher Home Page provides access to the Catalog.
+
+
+==================================================
+6. BI PUBLISHER CATALOG
+==================================================
+
+The Catalog contains folders used to organize BI Publisher
+objects.
+
+Two important folder types:
+
+Shared Folders:
+
+- Public/shared area.
+- Can be accessed by multiple users depending on permissions.
+
+
+My Folders:
+
+- Private area.
+- Used for a user's own BI Publisher content.
+
+
+==================================================
+7. BI PUBLISHER REPORT FLOW
+==================================================
+
+The general BI Publisher reporting flow is:
+
+Data Sources
+    ↓
+BI Publisher Report
+    ↓
+Template
+    ↓
+Output
+    ↓
+Destination
+
+
+==================================================
+8. DATA SOURCES
+==================================================
+
+BI Publisher can work with multiple data sources.
+
+The report data can come from different systems and
+databases.
+
+For the Oracle EBS practical, XML data was generated
+from an EBS Concurrent Program.
+
+
+==================================================
+9. OUTPUT FORMATS
+==================================================
+
+BI Publisher can generate reports in multiple formats.
+
+Examples discussed:
+
+- PDF
+- HTML
+- PPT
+- Other supported output formats
+
+
+==================================================
+10. DESTINATIONS
+==================================================
+
+Reports can be delivered to different destinations.
+
+Examples discussed:
+
+- Printer
+- Email
+- Fax
+- Web
+
+
+==================================================
+11. BI PUBLISHER DESKTOP
+==================================================
+
+BI Publisher Desktop can be integrated with Microsoft Word.
+
+After installation, Microsoft Word contains the:
+
+BI Publisher Ribbon
+
+This allows report templates to be designed using Word.
+
+
+==================================================
+12. XML SAMPLE DATA
+==================================================
+
+XML is used as sample data when designing the RTF template.
+
+The XML can be obtained from:
+
+- Client
+- EBS Server / Concurrent Program
+
+For the EBS practical:
+
+Concurrent Program
+      ↓
+Output Format: XML
+      ↓
+Run Request
+      ↓
+XML Output
+      ↓
+Save XML Locally
+
+
+==================================================
+13. DESIGN REPORT USING MICROSOFT WORD
+==================================================
+
+General process:
+
+1. Open Microsoft Word.
+
+2. Open the BI Publisher Ribbon.
+
+3. Load Sample XML.
+
+4. Use Table Wizard.
+
+5. Select the required fields.
+
+6. Configure grouping.
+
+7. Configure sorting.
+
+8. Complete the layout.
+
+9. Save the template as .rtf.
+
+10. Preview the report.
+
+
+==================================================
+14. TABLE WIZARD
+==================================================
+
+The Table Wizard is used to create the report layout
+from the loaded XML data.
+
+Example configuration from the training:
+
+Group By:
+
+DEPTNO
+
+Sort By:
+
+ENAME
+
+Order:
+
+Ascending
+
+
+==================================================
+15. RTF TEMPLATE
+==================================================
+
+RTF stands for:
+
+Rich Text Format
+
+BI Publisher templates created in Microsoft Word can
+be saved as:
+
+.rtf
+
+The RTF template controls the presentation and layout
+of the report.
+
+
+==================================================
+16. PREVIEW
+==================================================
+
+After designing the RTF template, the report can be
+previewed.
+
+Examples:
+
+- PDF
+- HTML
+
+Preview is used to verify the final report layout before
+deployment or delivery.
+
+
+==================================================
+17. DAY 13 TASK
+==================================================
+
+Task:
+
+Create two reports as RTF.
+
+Report 1:
+
+Based on a Master-Detail Report.
+
+Report 2:
+
+Based on a Parameter Report.
+
+
+==================================================
+18. MASTER-DETAIL REPORT
+==================================================
+
+For the Master-Detail Report, use a suitable report style.
+
+Examples discussed:
+
+- Group Above
+- Group Left
+
+The practical report used department information as the
+Master and employee information as the Detail.
+
+Concept:
+
+Department
+    ↓
+Employees
+
+
+==================================================
+19. PARAMETERIZED REPORT
+==================================================
+
+The Parameterized Report uses the query:
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = :DNO;
+
+:DNO is a Bind Parameter.
+
+The value entered for DNO determines which department's
+employees are returned.
+
+
+==================================================
+20. MASTER-DETAIL RTF PRACTICAL
+==================================================
+
+The practical flow was:
+
+EMP + DEPT
+    ↓
+Oracle Master-Detail Report
+    ↓
+Group Above
+    ↓
+Register as Concurrent Program
+    ↓
+Output Format: XML
+    ↓
+Submit Request
+    ↓
+Get XML
+    ↓
+Microsoft Word
+    ↓
+BI Publisher
+    ↓
+Load Sample XML
+    ↓
+Table Wizard
+    ↓
+Group by Department
+    ↓
+Save as RTF
+    ↓
+Preview
+
+
+==================================================
+21. PARAMETERIZED RTF PRACTICAL
+==================================================
+
+The practical flow was:
+
+EMP
+    ↓
+SELECT * FROM EMP WHERE DEPTNO = :DNO
+    ↓
+Bind Parameter
+    ↓
+Concurrent Program Parameter
+    ↓
+Value Set
+    ↓
+Submit Request
+    ↓
+XML Output
+    ↓
+Microsoft Word
+    ↓
+BI Publisher
+    ↓
+Load Sample XML
+    ↓
+Create Template
+    ↓
+Save as RTF
+    ↓
+Preview
+
+
+==================================================
+22. IMPORTANT DAY 13 POINTS
+==================================================
+
+- BIP stands for Business Intelligence Publisher.
+- BI Publisher is also associated with XML Publisher.
+- BI Publisher can work with multiple data sources.
+- BI Publisher supports multiple output formats.
+- BI Publisher can deliver reports to multiple destinations.
+- Authoring means creating reports.
+- Managing includes security, translation, and customization.
+- Delivering means publishing reports.
+- Bursting generates multiple documents from a batch report
+  and delivers them to multiple destinations.
+- Shared Folders are used for shared/public content.
+- My Folders are used for private user content.
+- BI Publisher Desktop integrates with Microsoft Word.
+- XML can be used as sample data.
+- Table Wizard helps create the report layout.
+- RTF stands for Rich Text Format.
+- Group Above and Group Left are report styles used for
+  grouped reports.
+- :DNO is a Bind Parameter.
+- The Concurrent Program output was set to XML for the
+  BI Publisher practical.
+- The final RTF report can be previewed as PDF or HTML.
+
+
+==================================================
+23. DAY 13 PRACTICAL SUMMARY
+==================================================
+
+Task 1:
+
+Master-Detail Report
+      ↓
+XML
+      ↓
+BI Publisher
+      ↓
+RTF
+
+
+Task 2:
+
+Parameterized Report
+      ↓
+:DNO
+      ↓
+XML
+      ↓
+BI Publisher
+      ↓
+RTF
+
+
+==================================================
+DAY 13 COMPLETED
+==================================================
